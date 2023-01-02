@@ -1,0 +1,31 @@
+<header class="header">
+  <ul class="header-link-list">
+    <li class="header-link"><a href="#">Home</a></li>
+    <li class="header-link"><a href="#">Feature</a></li>
+    <li class="header-link"><a href="#">News</a></li>
+  </ul>
+</header>
+
+<style lang="scss">
+  @import '../styles/_variables.scss';
+  .header {
+    &-link {
+      display: block;
+      flex-grow: 1;
+      & > a {
+        padding: 20px 0;
+        text-decoration: none;
+        color: map-get($map: $text-colors, $key: 'primary');
+        display: block;
+        text-align: center;
+      }
+      &-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        list-style: none;
+      }
+    }
+  }
+</style>
