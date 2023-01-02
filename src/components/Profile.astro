@@ -1,8 +1,12 @@
+---
+import LinkButton from '../components/LinkButton.astro'
+---
+
 <section>
-  <div class="profile-heading">
+  <header class="profile-heading">
     <h1 class="profile-heading-title">Profile</h1>
     <h3 class="profile-heading-description">Who Are You?</h3>
-  </div>
+  </header>
   <div class="profile">
     <img class="profile-image" src="face.jpeg" />
     <div class="profile-info">
@@ -16,6 +20,9 @@
       </ul>
     </div>
   </div>
+  <footer class="profile-footer">
+    <LinkButton text="Read More!" />
+  </footer>
 </section>
 
 <style lang="scss">
@@ -63,6 +70,10 @@
           list-style: none;
         }
       }
+    }
+
+    &-footer {
+      margin: 0 120px;
     }
   }
 </style>
