@@ -1,0 +1,85 @@
+$base-colors: (
+  'primary': #0efbff,
+  'secondary': #e5f9ff,
+);
+
+$text-colors: (
+  'primary': #222222,
+  'secondary': #8e8e8e,
+  'hint': #afafaf,
+  'white': #ffffff,
+  'accent-red': #fb2a79,
+  'accent-blue': #4ab3df,
+  'accent-blue-hover': #3b8fb2,
+  'copyright': #717171,
+);
+
+$border-colors: (
+  'primary': #dadada,
+  'secondary': #eaeaea,
+  'text': #4ab3df,
+  'text-hover': #3b8fb2,
+);
+
+$bg-colors: (
+  'white': #ffffff,
+  'grey': #f5f5f5,
+  'secondary-grey': #fafafa,
+  'black-hover': #00000020,
+  'light-blue': #ebf9ff,
+  'blue': #4ab3df,
+);
+
+$button-colors: (
+  'primary': #f7c600,
+  'secondary-border': #dadada,
+  'secondary-fill': #fafafa,
+  'danger': #f53a67,
+  'info': #c5c5c5,
+  'text': #4ab3df,
+  'text-hover': #3b8fb2,
+);
+
+$alert-colors: (
+  'red-fill': #fb2a79,
+  'red-border': #ff8ff6,
+  'blue-fill': #ebf9ff,
+  'blue-border': #4ab3df,
+);
+
+$font-sizes: (
+  'heading1': 48px,
+  'heading2': 28px,
+  'heading3': 20px,
+  'heading4': 18px,
+  'heading5': 15px,
+  'body': 16px,
+  'small_body': 14px,
+  'text': 12px,
+  'caption': 11px,
+);
+
+$layers: (
+  'controls': 1000,
+);
+
+$break-point-sp: 668px;
+$break-point-tablet: 1000px;
+
+@mixin sp {
+  @media screen and (max-width: calc($break-point-sp - 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: calc($break-point-tablet - 1px)) and (min-width: $break-point-sp) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media screen and (min-width: $break-point-sp) {
+    @content;
+  }
+}
