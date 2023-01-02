@@ -1,0 +1,47 @@
+<section class="profile">
+  <img class="profile-image" src="face.jpeg" />
+  <div class="profile-info">
+    <div>
+      <h1 class="profile-my-name">maru (まる)</h1>
+    </div>
+    <ul class="profile-description-list">
+      <li class="profile-description">Frontend Developer</li>
+      <li class="profile-descriotion">Rhythm Game Nerd</li>
+    </ul>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../styles/_variables.scss';
+  .profile {
+    margin: 0 10%;
+    display: flex;
+    grid-column-gap: 20px;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    &-image {
+      width: 25%;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    &-my-name {
+      font-size: map-get($map: $font-sizes, $key: 'heading1');
+    }
+
+    &-info {
+    }
+
+    &-description {
+      &-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        padding: 10px 15px;
+        border-left: 5px solid #555555;
+        list-style: none;
+      }
+    }
+  }
+</style>
