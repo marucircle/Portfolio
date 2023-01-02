@@ -1,0 +1,27 @@
+---
+export interface Props {
+  text: string
+}
+
+const { text } = Astro.props
+---
+
+<button class="button">
+  <a>{text}</a>
+</button>
+
+<style lang="scss">
+  @import '../styles/_variables.scss';
+  .button {
+    background-color: map-get($map: $bg-colors, $key: 'white');
+    border: 2px solid map-get($map: $button-colors, $key: 'primary');
+    border-radius: 3px;
+    color: map-get($map: $button-colors, $key: 'primary');
+    padding: 20px;
+    width: 100%;
+
+    & > a {
+      color: inherit;
+    }
+  }
+</style>
