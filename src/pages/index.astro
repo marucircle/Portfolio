@@ -6,7 +6,14 @@ import Profile from '../components/Profile.astro'
 
 <Layout title="maru's room">
   <main class="page">
-    メインページ
+    <div class="page-firstview">
+      <div class="page-logo-wrapper">
+        <svg class="page-logo" viewBox="0 0 1000 191">
+          <use xlink:href="logo-1.svg#logo"></use>
+        </svg>
+      </div>
+      <p class="page-logo-paragraph">Welcome to Maru's room!</p>
+    </div>
     <Profile />
   </main>
 </Layout>
@@ -15,7 +22,27 @@ import Profile from '../components/Profile.astro'
   @import '../styles/_variables.scss';
 
   .page {
-    padding: 20px;
+    padding: 100px 20px;
+
+    &-firstview {
+      margin-bottom: 100px;
+    }
+
+    &-logo {
+      margin: auto;
+      width: 500px;
+
+      &-paragraph {
+        margin-top: 10px;
+        font-weight: 300;
+        color: #555555;
+        text-align: center;
+      }
+
+      &-wrapper {
+        text-align: center;
+      }
+    }
   }
   .main-bg {
     background-color: map-get($map: $base-colors, $key: 'primary');

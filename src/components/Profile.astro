@@ -1,20 +1,27 @@
-<section class="profile">
-  <img class="profile-image" src="face.jpeg" />
-  <div class="profile-info">
-    <div>
-      <h1 class="profile-my-name">maru (まる)</h1>
+<section>
+  <div class="profile-heading">
+    <h1 class="profile-heading-title">Profile</h1>
+    <h3 class="profile-heading-description">Who Are You?</h3>
+  </div>
+  <div class="profile">
+    <img class="profile-image" src="face.jpeg" />
+    <div class="profile-info">
+      <div>
+        <p class="profile-info-my-name">maru (まる)</p>
+      </div>
+      <ul class="profile-info-description-list">
+        <li class="profile-info-description">Frontend Developer</li>
+        <li class="profile-info-descriotion">Rhythm Game Nerd</li>
+        <li class="profile-info-descriotion">Can't understand English...</li>
+      </ul>
     </div>
-    <ul class="profile-description-list">
-      <li class="profile-description">Frontend Developer</li>
-      <li class="profile-descriotion">Rhythm Game Nerd</li>
-    </ul>
   </div>
 </section>
 
 <style lang="scss">
   @import '../styles/_variables.scss';
   .profile {
-    margin: 0 10%;
+    margin: 64px 10%;
     display: flex;
     grid-column-gap: 20px;
     align-items: center;
@@ -26,21 +33,35 @@
       border-radius: 50%;
     }
 
-    &-my-name {
-      font-size: map-get($map: $font-sizes, $key: 'heading1');
+    &-heading {
+      &-title {
+        font-size: map-get($map: $font-sizes, $key: 'title');
+        text-align: center;
+      }
+
+      &-description {
+        text-align: center;
+        font-size: map-get($map: $font-sizes, $key: 'heading4');
+        font-weight: 300;
+        color: #555555;
+      }
     }
 
     &-info {
-    }
-
-    &-description {
-      &-list {
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-        padding: 10px 15px;
-        border-left: 5px solid #555555;
-        list-style: none;
+      &-my-name {
+        font-size: map-get($map: $font-sizes, $key: 'heading1');
+        font-weight: bold;
+      }
+      &-description {
+        &-list {
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          padding: 10px 15px;
+          margin-top: 10px;
+          border-left: 5px solid #555555;
+          list-style: none;
+        }
       }
     }
   }
