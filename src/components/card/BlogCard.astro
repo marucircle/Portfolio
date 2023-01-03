@@ -1,28 +1,15 @@
----
-// type Props = {
-//   title: string
-//   imageUrl?: string
-//   detail: string
-//   updatedAt: string
-// }
-
-// const { title, detail, updatedAt } = Astro.props
-
-//TODO: propsの内容を記事に反映するようにする
----
-
 <article class="card">
   <header class="card-header">
     <img
       class="card-header-image"
       src="hoge.png"
       onerror="this.src = 'no-image.png';"
-      alt="News Thumbnail Image"
+      alt="News Image"
     />
   </header>
   <section class="card-content">
-    <h1 class="card-title">Newsタイトルタイトルタイトルタイトル</h1>
-    <p class="card-description">News</p>
+    <h1 class="card-title">Blogタイトルタイトルタイトルタイトル</h1>
+    <p class="card-description">Blog</p>
   </section>
   <footer class="card-footer">
     <p class="card-date">last update: 2022-01-01</p>
