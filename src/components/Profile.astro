@@ -18,6 +18,25 @@ import LinkButton from '../components/LinkButton.astro'
         <li class="profile-info-descriotion">Rhythm Game Nerd</li>
         <li class="profile-info-descriotion">Can't understand English...</li>
       </ul>
+      <div class="profile-sns">
+        <p class="profile-sns-heading">Please follow me!</p>
+        <div class="profile-sns-grid">
+          <a class="profile-sns-link" href="https://github.com/marucircle">
+            <svg class="profile-sns-icon" viewBox="0 0 24 24">
+              <use xlink:href="sns/github.svg#github"></use>
+            </svg>
+          </a>
+          <a class="profile-sns-link" href="https://twitter.com/kabitaya1133">
+            <svg class="profile-sns-icon sns-twitter" viewBox="0 0 400 400">
+              <use xlink:href="sns/twitter.svg#twitter"></use>
+            </svg>
+          </a>
+          <a class="profile-sns-link" href="https://qiita.com/marumaru0113">
+            <img class="profile-sns-icon" src="sns/qiita.png" />
+          </a>
+        </div>
+        <a></a>
+      </div>
     </div>
   </div>
   <footer class="profile-footer">
@@ -72,8 +91,40 @@ import LinkButton from '../components/LinkButton.astro'
       }
     }
 
+    &-sns {
+      margin-top: 45px;
+      &-heading {
+        text-align: center;
+        font-size: map-get($map: $font-sizes, $key: 'heading4');
+        font-weight: bold;
+        color: #555555;
+      }
+
+      &-link {
+        text-decoration: none;
+      }
+
+      &-grid {
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+      }
+
+      &-icon {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
     &-footer {
       margin: 0 120px;
+    }
+  }
+
+  .sns {
+    &-twitter {
+      color: map-get($map: $sns-colors, $key: 'twitter');
     }
   }
 </style>

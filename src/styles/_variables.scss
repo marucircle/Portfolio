@@ -24,6 +24,7 @@ $border-colors: (
 $bg-colors: (
   'white': #ffffff,
   'grey': #f5f5f5,
+  'dark-grey': #464646,
   'secondary-grey': #fafafa,
   'black-hover': #00000020,
   'light-blue': #ebf9ff,
@@ -45,6 +46,14 @@ $alert-colors: (
   'red-border': #ff8ff6,
   'blue-fill': #ebf9ff,
   'blue-border': #4ab3df,
+);
+
+$sns-colors: (
+  'line': #00c300,
+  'twitter': #55acee,
+  'facebook': #1877f2,
+  'hatena': #008fde,
+  'instagram': linear-gradient(90deg, #f77d34 0%, #db3076 48.69%, #a437b8 100%),
 );
 
 $font-sizes: (
