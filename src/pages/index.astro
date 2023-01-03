@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/mainLayout.astro'
-import Card from '../components/Card.astro'
 import Profile from '../components/Profile.astro'
+import News from '../components/News.astro'
 ---
 
 <Layout title="maru's room">
@@ -14,7 +14,10 @@ import Profile from '../components/Profile.astro'
       </div>
       <p class="page-logo-paragraph">Welcome to Maru's room!</p>
     </div>
-    <Profile />
+    <div class="page-section-list">
+      <Profile />
+      <News />
+    </div>
   </main>
 </Layout>
 
@@ -26,6 +29,12 @@ import Profile from '../components/Profile.astro'
 
     &-firstview {
       margin-bottom: 100px;
+    }
+
+    &-section-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 150px;
     }
 
     &-logo {

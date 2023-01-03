@@ -1,0 +1,49 @@
+---
+import LinkButton from '../components/LinkButton.astro'
+import NewsCard from './card/NewsCard.astro'
+---
+
+<section class="news">
+  <header class="news-heading">
+    <h1 class="news-heading-title">News</h1>
+    <h3 class="news-heading-description">What are you doing?</h3>
+  </header>
+  <div class="news-content">
+    <NewsCard />
+    <NewsCard />
+    <NewsCard />
+  </div>
+  <footer class="news-footer">
+    <LinkButton text="Read More!" />
+  </footer>
+</section>
+
+<style lang="scss">
+  @import '../styles/_variables.scss';
+  .news {
+    &-heading {
+      &-title {
+        font-size: map-get($map: $font-sizes, $key: 'title');
+        text-align: center;
+      }
+
+      &-description {
+        text-align: center;
+        font-size: map-get($map: $font-sizes, $key: 'heading4');
+        font-weight: 300;
+        color: #555555;
+      }
+    }
+
+    &-content {
+      margin: 64px 10%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px;
+    }
+
+    &-footer {
+      margin: 0 120px;
+    }
+  }
+</style>
