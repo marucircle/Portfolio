@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prismic:generate":"npx prismic-ts-codegen"
+    "type-generate:prismic":"npx prismic-ts-codegen"
   },
   "dependencies": {
     "@prismicio/client": "^6.7.3",
