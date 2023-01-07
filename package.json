@@ -11,9 +11,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.8.0"
+    "@prismicio/client": "^6.7.3",
+    "astro": "^1.8.0",
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
+    "dotenv": "^16.0.3",
     "prettier": "^2.8.1",
     "prettier-plugin-astro": "^0.7.0",
     "sass": "^1.57.1",
