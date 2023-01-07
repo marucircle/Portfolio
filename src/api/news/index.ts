@@ -1,11 +1,11 @@
 import CMSClient from '../client'
 
-export const getOneBlog = async ({ id }: { id: string }) => {
-  return await CMSClient.getByUID('blogs', id)
+export const getOneNews = async ({ id }: { id: string }) => {
+  return await CMSClient.getByUID('news', id)
 }
 
-export const getManyBlog = async ({ page }: { page: number }) => {
-  return await CMSClient.getByType('blogs', {
+export const getManyNews = async ({ page }: { page: number }) => {
+  return await CMSClient.getByType('news', {
     orderings: {
       //TODO 並び替えについて検討
       field: 'document.last_publication_date',
@@ -16,8 +16,8 @@ export const getManyBlog = async ({ page }: { page: number }) => {
   })
 }
 
-export const getTopBlog = async ({ page }: { page: number }) => {
-  return await CMSClient.getByType('blogs', {
+export const getTopNews = async ({ page }: { page: number }) => {
+  return await CMSClient.getByType('news', {
     orderings: {
       field: 'document.last_publication_date',
       direction: 'desc',
@@ -27,8 +27,8 @@ export const getTopBlog = async ({ page }: { page: number }) => {
   })
 }
 
-export const getAllBlog = async () => {
-  return await CMSClient.getAllByType('blogs', {
+export const getAllNews = async () => {
+  return await CMSClient.getAllByType('news', {
     orderings: {
       //TODO 並び替えについて検討
       field: 'document.last_publication_date',
