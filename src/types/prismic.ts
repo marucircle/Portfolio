@@ -57,14 +57,14 @@ interface NewsDocumentData {
     /**
      * title field in *News*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Text
      * - **Placeholder**: ニュースタイトル
      * - **API ID Path**: news.title
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.KeyTextField;
     /**
      * summary field in *News*
      *
