@@ -1,18 +1,28 @@
+---
+import type { BlogDocument } from '../../types/prismic'
+
+export interface Props {
+  blog: BlogDocument
+}
+
+const { blog } = Astro.props
+---
+
 <article class="card">
   <header class="card-header">
     <img
       class="card-header-image"
-      src="hoge.png"
+      src={blog.data.thumbnail.url}
       onerror="this.src = 'no-image.png';"
       alt="News Image"
     />
   </header>
   <section class="card-content">
-    <h1 class="card-title">Blogタイトルタイトルタイトルタイトル</h1>
-    <p class="card-description">Blog</p>
+    <h1 class="card-title">{blog.data.title}</h1>
+    <p class="card-description">{blog.data.description}</p>
   </section>
   <footer class="card-footer">
-    <p class="card-date">last update: 2022-01-01</p>
+    <p class="card-date">last update: {blog.last_publication_date}</p>
   </footer>
 </article>
 

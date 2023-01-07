@@ -1,6 +1,13 @@
 ---
 import LinkButton from '../components/LinkButton.astro'
 import BlogCard from './card/BlogCard.astro'
+import type { BlogDocument } from '../types/prismic'
+
+type Props = {
+  blogList: Array<BlogDocument>
+}
+
+const { blogList } = Astro.props
 ---
 
 <section class="news">
@@ -9,9 +16,11 @@ import BlogCard from './card/BlogCard.astro'
     <h3 class="news-heading-description">What are you doing?</h3>
   </header>
   <div class="news-content">
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
+    {
+      blogList.map((blog) => {
+        return <BlogCard blog={blog} />
+      })
+    }
   </div>
   <footer class="news-footer">
     <LinkButton text="Read More!" />

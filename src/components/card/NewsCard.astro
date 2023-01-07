@@ -6,22 +6,20 @@ export interface Props {
 }
 
 const { news } = Astro.props
-
-console.log(news.data.title)
 ---
 
 <article class="card">
   <header class="card-header">
     <img
       class="card-header-image"
-      src="hoge.png"
+      src={news.data.thumbnail.url}
       onerror="this.src = 'no-image.png';"
       alt="News Thumbnail Image"
     />
   </header>
   <section class="card-content">
     <h1 class="card-title">{news.data.title}</h1>
-    <p class="card-description">{news.data.summary}</p>
+    <p class="card-description">{news.data.description}</p>
   </section>
   <footer class="card-footer">
     <p class="card-date">last update: {news.last_publication_date}</p>

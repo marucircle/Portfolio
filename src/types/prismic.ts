@@ -6,13 +6,70 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Blogs documents */
-interface BlogsDocumentData {
+/** Content for Blog documents */
+interface BlogDocumentData {
     /**
-     * title field in *Blogs*
+     * title field in *Blog*
      *
      * - **Field Type**: Text
+     * - **Placeholder**: 記事タイトル
+     * - **API ID Path**: blog.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * thumbnail field in *Blog*
+     *
+     * - **Field Type**: Image
      * - **Placeholder**: *None*
+     * - **API ID Path**: blog.thumbnail
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    thumbnail: prismicT.ImageField<never>;
+    /**
+     * description field in *Blog*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: 概要
+     * - **API ID Path**: blog.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * contents field in *Blog*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.contents
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    contents: prismicT.RichTextField;
+}
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+/** Content for Blog documents */
+interface BlogsDocumentData {
+    /**
+     * title field in *Blog*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: 記事タイトル
      * - **API ID Path**: blogs.title
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
@@ -20,7 +77,7 @@ interface BlogsDocumentData {
      */
     title: prismicT.KeyTextField;
     /**
-     * thumbnail field in *Blogs*
+     * thumbnail field in *Blog*
      *
      * - **Field Type**: Image
      * - **Placeholder**: *None*
@@ -31,7 +88,18 @@ interface BlogsDocumentData {
      */
     thumbnail: prismicT.ImageField<never>;
     /**
-     * contents field in *Blogs*
+     * description field in *Blog*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: 概要
+     * - **API ID Path**: blogs.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * contents field in *Blog*
      *
      * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
@@ -43,7 +111,7 @@ interface BlogsDocumentData {
     contents: prismicT.RichTextField;
 }
 /**
- * Blogs document from Prismic
+ * Blog document from Prismic
  *
  * - **API ID**: `blogs`
  * - **Repeatable**: `true`
@@ -54,6 +122,17 @@ interface BlogsDocumentData {
 export type BlogsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogsDocumentData>, "blogs", Lang>;
 /** Content for News documents */
 interface NewsDocumentData {
+    /**
+     * thumbnail field in *News*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news.thumbnail
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    thumbnail: prismicT.ImageField<never>;
     /**
      * title field in *News*
      *
@@ -66,16 +145,16 @@ interface NewsDocumentData {
      */
     title: prismicT.KeyTextField;
     /**
-     * summary field in *News*
+     * description field in *News*
      *
      * - **Field Type**: Text
      * - **Placeholder**: 概要
-     * - **API ID Path**: news.summary
+     * - **API ID Path**: news.description
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    summary: prismicT.KeyTextField;
+    description: prismicT.KeyTextField;
     /**
      * content field in *News*
      *
@@ -144,12 +223,12 @@ interface SkillDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SkillDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SkillDocumentData>, "skill", Lang>;
-export type AllDocumentTypes = BlogsDocument | NewsDocument | SkillDocument;
+export type AllDocumentTypes = BlogDocument | BlogsDocument | NewsDocument | SkillDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogsDocumentData, BlogsDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
+        export type { BlogDocumentData, BlogDocument, BlogsDocumentData, BlogsDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
     }
 }

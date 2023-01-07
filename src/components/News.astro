@@ -3,7 +3,7 @@ import LinkButton from '../components/LinkButton.astro'
 import NewsCard from './card/NewsCard.astro'
 import type { NewsDocument } from '../types/prismic'
 
-export interface Props {
+type Props = {
   newsList: Array<NewsDocument>
 }
 

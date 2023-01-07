@@ -5,8 +5,11 @@ import News from '../components/News.astro'
 import Blog from '../components/Blog.astro'
 
 import { getTopNews } from '../api/news'
+import { getTopBlog } from '../api/blog'
 
 const newsList = await getTopNews()
+
+const blogList = await getTopBlog()
 ---
 
 <Layout title="maru's room">
@@ -22,7 +25,7 @@ const newsList = await getTopNews()
     <div class="page-section-list">
       <Profile />
       <News newsList={newsList.results} />
-      <Blog />
+      <Blog blogList={blogList.results} />
     </div>
   </main>
 </Layout>
