@@ -1,14 +1,13 @@
 ---
-// type Props = {
-//   title: string
-//   imageUrl?: string
-//   detail: string
-//   updatedAt: string
-// }
+import type { NewsDocument } from '../../types/prismic'
 
-// const { title, detail, updatedAt } = Astro.props
+export interface Props {
+  news: NewsDocument
+}
 
-//TODO: propsの内容を記事に反映するようにする
+const { news } = Astro.props
+
+console.log(news.data.title)
 ---
 
 <article class="card">
@@ -21,11 +20,11 @@
     />
   </header>
   <section class="card-content">
-    <h1 class="card-title">Newsタイトルタイトルタイトルタイトル</h1>
-    <p class="card-description">News</p>
+    <h1 class="card-title">{news.data.title}</h1>
+    <p class="card-description">{news.data.summary}</p>
   </section>
   <footer class="card-footer">
-    <p class="card-date">last update: 2022-01-01</p>
+    <p class="card-date">last update: {news.last_publication_date}</p>
   </footer>
 </article>
 

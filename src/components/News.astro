@@ -1,6 +1,15 @@
 ---
 import LinkButton from '../components/LinkButton.astro'
 import NewsCard from './card/NewsCard.astro'
+import type { NewsDocument } from '../types/prismic'
+
+export interface Props {
+  newsList: Array<NewsDocument>
+}
+
+const { newsList } = Astro.props
+
+console.log(newsList)
 ---
 
 <section class="news">
@@ -9,9 +18,11 @@ import NewsCard from './card/NewsCard.astro'
     <h3 class="news-heading-description">What's going on?</h3>
   </header>
   <div class="news-content">
-    <NewsCard />
-    <NewsCard />
-    <NewsCard />
+    {
+      newsList.map((news) => {
+        return <NewsCard news={news} />
+      })
+    }
   </div>
   <footer class="news-footer">
     <LinkButton text="Read More!" />

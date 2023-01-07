@@ -4,11 +4,9 @@ import Profile from '../components/Profile.astro'
 import News from '../components/News.astro'
 import Blog from '../components/Blog.astro'
 
-import CMSClient from '../api/client'
+import { getTopNews } from '../api/news'
 
-const results = await CMSClient.getAllByType('blogs')
-
-console.log(results)
+const newsList = await getTopNews()
 ---
 
 <Layout title="maru's room">
@@ -23,7 +21,7 @@ console.log(results)
     </div>
     <div class="page-section-list">
       <Profile />
-      <News />
+      <News newsList={newsList.results} />
       <Blog />
     </div>
   </main>

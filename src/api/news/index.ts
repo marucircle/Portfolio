@@ -16,7 +16,7 @@ export const getManyNews = async ({ page }: { page: number }) => {
   })
 }
 
-export const getTopNews = async ({ page }: { page: number }) => {
+export const getTopNews = async () => {
   return await CMSClient.getByType('news', {
     orderings: {
       field: 'document.last_publication_date',
