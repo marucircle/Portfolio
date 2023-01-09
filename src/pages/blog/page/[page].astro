@@ -1,0 +1,62 @@
+---
+import Layout from '../../../layouts/mainLayout.astro'
+import Pagination from '../../../components/vue/Pagination.vue'
+import NewsCard from '../../../components/card/NewsCard.astro'
+
+import { getAllBlog } from '../../../api/blog'
+import type { NewsDocument } from '../../../types/prismic'
+
+export async function getStaticPaths({ paginate }: any) {
+  const entries = await getAllBlog()
+  return paginate(entries, { pageSize: 1 })
+}
+
+const { page } = Astro.props
+console.log(page)
+---
+
+<Layout title="maru's room">
+  <div class="title">
+    <h1 class="title-heading">Blog</h1>
+    <h3 class="title-description">What are you doing?</h3>
+  </div>
+  <main class="content">
+    {
+      page.data.map((news: NewsDocument) => {
+        return <NewsCard news={news} />
+      })
+    }
+  </main>
+  <div class="pagination-wrapper">
+    <Pagination offset={page.currentPage} maxPage={page.total} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  @import '../../../styles/_variables.scss';
+  .content {
+    margin: 64px 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+  }
+
+  .title {
+    &-heading {
+      font-size: map-get($map: $font-sizes, $key: 'title');
+      text-align: center;
+    }
+
+    &-description {
+      text-align: center;
+      font-size: map-get($map: $font-sizes, $key: 'heading4');
+      font-weight: 300;
+      color: #555555;
+    }
+  }
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+</style>
