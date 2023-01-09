@@ -48,7 +48,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '../../styles/_variables.scss';
+@import '@/styles/_variables.scss';
 .pagination {
   display: flex;
   column-gap: 40px;

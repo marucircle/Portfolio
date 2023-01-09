@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/mainLayout.astro'
-import Profile from '../components/Profile.astro'
-import News from '../components/News.astro'
-import Blog from '../components/Blog.astro'
+import Profile from '@/components/astro/pages/top/Profile.astro'
+import News from '../components/astro/pages/top/News.astro'
+import Blog from '../components/astro/pages/top/Blog.astro'
 
 import { getTopNews } from '../api/news'
 import { getTopBlog } from '../api/blog'
@@ -29,7 +29,7 @@ const blogList = await getTopBlog()
 </Layout>
 
 <style lang="scss">
-  @import '../styles/_variables.scss';
+  @import '@/styles/_variables.scss';
 
   .page {
     &-firstview {

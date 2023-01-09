@@ -1,36 +1,34 @@
 ---
-import LinkButton from '../components/LinkButton.astro'
-import NewsCard from './card/NewsCard.astro'
-import type { NewsDocument } from '../types/prismic'
+import LinkButton from '@/components/astro/LinkButton.astro'
+import BlogCard from '@/components/astro/card/BlogCard.astro'
+import type { BlogDocument } from '@/types/prismic'
 
 type Props = {
-  newsList: Array<NewsDocument>
+  blogList: Array<BlogDocument>
 }
 
-const { newsList } = Astro.props
-
-console.log(newsList)
+const { blogList } = Astro.props
 ---
 
 <section class="news">
   <header class="news-heading">
-    <h1 class="news-heading-title">News</h1>
-    <h3 class="news-heading-description">What's going on?</h3>
+    <h1 class="news-heading-title">Blog</h1>
+    <h3 class="news-heading-description">What are you doing?</h3>
   </header>
   <div class="news-content">
     {
-      newsList.map((news) => {
-        return <NewsCard news={news} />
+      blogList.map((blog) => {
+        return <BlogCard blog={blog} />
       })
     }
   </div>
   <footer class="news-footer">
-    <LinkButton link="/news/page/1" text="Read More!" />
+    <LinkButton link="/blog/page/1" text="Read More!" />
   </footer>
 </section>
 
 <style lang="scss">
-  @import '../styles/_variables.scss';
+  @import '@/styles/_variables.scss';
   .news {
     &-heading {
       &-title {
