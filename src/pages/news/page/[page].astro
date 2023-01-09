@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/mainLayout.astro'
+import Pagination from '../../../components/vue/Pagination.vue'
+import NewsCard from '../../../components/card/NewsCard.astro'
+
+import { getAllNews } from '../../../api/news'
+import type { NewsDocument } from '../../../types/prismic'
+
+export async function getStaticPaths({ paginate }: any) {
+  const entries = await getAllNews()
+  return paginate(entries, { pageSize: 1 })
+}
+
+const { page } = Astro.props
+console.log(page)
+---
+
+<Layout title="maru's room">
+  <main class="content">
+    {
+      page.data.map((news: NewsDocument) => {
+        return <NewsCard news={news} />
+      })
+    }
+  </main>
+  <div class="pagination-wrapper">
+    <Pagination offset={page.currentPage} maxPage={page.total} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  @import '../../../styles/_variables.scss';
+
+  .content {
+    margin: 64px 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+  }
+
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+  }
+</style>
