@@ -4,15 +4,14 @@ export const getOneNews = async ({ id }: { id: string }) => {
   return await CMSClient.getByUID('news', id)
 }
 
-export const getManyNews = async ({ page }: { page: number }) => {
+export const getManyNews = async () => {
   return await CMSClient.getByType('news', {
     orderings: {
       //TODO 並び替えについて検討
       field: 'document.last_publication_date',
       direction: 'desc',
     },
-    page: page,
-    pageSize: 20, //TODO サイズは検討
+    pageSize: 1, //TODO サイズは検討
   })
 }
 
