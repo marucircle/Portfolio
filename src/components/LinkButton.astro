@@ -1,13 +1,14 @@
 ---
 export interface Props {
   text: string
+  link: string
 }
 
-const { text } = Astro.props
+const { text, link } = Astro.props
 ---
 
 <button class="button">
-  <a>{text}</a>
+  <a href={link}>{text}</a>
 </button>
 
 <style lang="scss">
