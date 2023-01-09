@@ -13,29 +13,25 @@ const blogList = await getTopBlog()
 ---
 
 <Layout title="maru's room">
-  <main class="page">
-    <div class="page-firstview">
-      <div class="page-logo-wrapper">
-        <svg class="page-logo" viewBox="0 0 1000 191">
-          <use xlink:href="logo-1.svg#logo"></use>
-        </svg>
-      </div>
-      <p class="page-logo-paragraph">Welcome to maru's room!</p>
+  <div class="page-firstview">
+    <div class="page-logo-wrapper">
+      <svg class="page-logo" viewBox="0 0 1000 191">
+        <use xlink:href="logo-1.svg#logo"></use>
+      </svg>
     </div>
-    <div class="page-section-list">
-      <Profile />
-      <News newsList={newsList.results} />
-      <Blog blogList={blogList.results} />
-    </div>
-  </main>
+    <p class="page-logo-paragraph">Welcome to maru's room!</p>
+  </div>
+  <div class="page-section-list">
+    <Profile />
+    <News newsList={newsList.results} />
+    <Blog blogList={blogList.results} />
+  </div>
 </Layout>
 
 <style lang="scss">
   @import '../styles/_variables.scss';
 
   .page {
-    padding: 100px 20px;
-
     &-firstview {
       margin-bottom: 100px;
     }

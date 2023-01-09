@@ -16,6 +16,10 @@ console.log(page)
 ---
 
 <Layout title="maru's room">
+  <div class="title">
+    <h1 class="title-heading">News</h1>
+    <h3 class="title-description">What's going on?</h3>
+  </div>
   <main class="content">
     {
       page.data.map((news: NewsDocument) => {
@@ -30,7 +34,6 @@ console.log(page)
 
 <style lang="scss">
   @import '../../../styles/_variables.scss';
-
   .content {
     margin: 64px 10%;
     display: grid;
@@ -38,9 +41,22 @@ console.log(page)
     grid-column-gap: 20px;
   }
 
+  .title {
+    &-heading {
+      font-size: map-get($map: $font-sizes, $key: 'title');
+      text-align: center;
+    }
+
+    &-description {
+      text-align: center;
+      font-size: map-get($map: $font-sizes, $key: 'heading4');
+      font-weight: 300;
+      color: #555555;
+    }
+  }
   .pagination-wrapper {
     display: flex;
     justify-content: center;
-    margin: 40px;
+    margin-top: 40px;
   }
 </style>
