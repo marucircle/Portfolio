@@ -1,6 +1,6 @@
 <header class="header">
   <svg class="header-logo" viewBox="0 0 1000 191">
-    <use xlink:href="logo-1.svg#logo"></use>
+    <use xlink:href="logo-white.svg#logo"></use>
   </svg>
   <ul class="header-link-list">
     <li class="header-link"><a href="/">Home</a></li>
@@ -13,19 +13,22 @@
 <style lang="scss">
   @import '../styles/_variables.scss';
   .header {
-    margin: 0 20px;
+    padding: 0 20px;
     display: grid;
     position: sticky;
     inset: 0;
     grid-template-columns: max-content 1fr;
-    background-color: map-get($map: $bg-colors, $key: 'white');
+    column-gap: 80px;
+    background-color: map-get($map: $bg-colors, $key: 'dark-grey');
     &-link {
       display: block;
       flex-grow: 1;
       & > a {
         padding: 20px 0;
         text-decoration: none;
-        color: map-get($map: $text-colors, $key: 'primary');
+        color: map-get($map: $text-colors, $key: 'white');
+        font-weight: bold;
+
         display: block;
         text-align: center;
       }
