@@ -1,5 +1,6 @@
 ---
 import type { BlogDocument } from '../../types/prismic'
+import dateFormat from '../../utils/dateFormat'
 
 export interface Props {
   blog: BlogDocument
@@ -22,7 +23,7 @@ const { blog } = Astro.props
     <p class="card-description">{blog.data.description}</p>
   </section>
   <footer class="card-footer">
-    <p class="card-date">last update: {blog.last_publication_date}</p>
+    <p class="card-date">last update: {dateFormat(blog.last_publication_date)}</p>
   </footer>
 </article>
 

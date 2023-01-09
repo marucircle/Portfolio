@@ -1,5 +1,6 @@
 ---
 import type { NewsDocument } from '../../types/prismic'
+import dateFormat from '../../utils/dateFormat'
 
 export interface Props {
   news: NewsDocument
@@ -22,7 +23,7 @@ const { news } = Astro.props
     <p class="card-description">{news.data.description}</p>
   </section>
   <footer class="card-footer">
-    <p class="card-date">last update: {news.last_publication_date}</p>
+    <p class="card-date">last update: {dateFormat(news.last_publication_date)}</p>
   </footer>
 </article>
 
