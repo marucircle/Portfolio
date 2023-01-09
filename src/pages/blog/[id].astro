@@ -1,7 +1,22 @@
 ---
 import Layout from '@/layouts/mainLayout.astro'
+import SliceZone from '@/components/vue/prismic/SliceZone.vue'
+import { getAllBlog } from '@/api/blog'
+
+export async function getStaticPaths() {
+  const blogList = await getAllBlog()
+
+  return blogList.map((blog) => {
+    return {
+      params: { id: blog.id },
+      props: { blog },
+    }
+  })
+}
+
+const { blog } = Astro.props
 ---
 
 <Layout title="maru's room">
-  <p>準備ちう</p>
+  <SliceZone slices={blog.data.body} />
 </Layout>
