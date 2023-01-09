@@ -18,10 +18,12 @@ const { text, link } = Astro.props
     border: 2px solid map-get($map: $button-colors, $key: 'primary');
     border-radius: 3px;
     color: map-get($map: $button-colors, $key: 'primary');
-    padding: 20px;
     width: 100%;
 
     & > a {
+      display: block;
+      width: 100%;
+      padding: 20px 0;
       color: inherit;
     }
   }
