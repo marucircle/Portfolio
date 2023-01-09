@@ -69,7 +69,7 @@ import LinkButton from '@/components/astro/LinkButton.astro'
         text-align: center;
         font-size: map-get($map: $font-sizes, $key: 'heading4');
         font-weight: 300;
-        color: #555555;
+        color: map-get($map: $text-colors, $key: 'grey');
       }
     }
 
@@ -97,7 +97,7 @@ import LinkButton from '@/components/astro/LinkButton.astro'
         text-align: center;
         font-size: map-get($map: $font-sizes, $key: 'heading4');
         font-weight: bold;
-        color: #555555;
+        color: map-get($map: $text-colors, $key: 'grey');
       }
 
       &-link {
