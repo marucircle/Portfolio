@@ -51,7 +51,7 @@ export default defineComponent({
 @import '../../styles/_variables.scss';
 .pagination {
   display: flex;
-  column-gap: 20px;
+  column-gap: 40px;
 
   &-flexbox {
     display: flex;
@@ -61,6 +61,14 @@ export default defineComponent({
     display: inline-block;
     padding: 4px 10px;
     font-size: map-get($map: $font-sizes, $key: 'heading3');
+    color: map-get($map: $text-colors, $key: 'primary');
+    border-radius: 3px;
+    transition: all 0.2s;
+
+    &:hover {
+      color: map-get($map: $text-colors, $key: 'white');
+      background-color: map-get($map: $bg-colors, $key: 'black');
+    }
 
     font-weight: bold;
 
