@@ -1,0 +1,50 @@
+---
+type Props = {
+  links: Array<{
+    label: string
+    to?: string
+  }>
+}
+
+const { links } = Astro.props
+---
+
+<div>
+  <ul class="breadcrumbs">
+    {
+      links.map((link, i) => {
+        return (
+          <li class="breadcrumbs-item">
+            <a href={link.to} class="breadcrumbs-link">
+              {link.label}
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @import '@/styles/_variables.scss';
+  .breadcrumbs {
+    font-size: map-get($font-sizes, 'caption');
+    display: flex;
+    align-items: center;
+    color: map-get($text-colors, 'secondary');
+
+    &-item + &-item {
+      &::before {
+        content: '/';
+        margin: 0.3em;
+      }
+    }
+
+    &-link {
+      cursor: pointer;
+      &:hover {
+        color: map-get($text-colors, 'primary');
+      }
+    }
+  }
+</style>
