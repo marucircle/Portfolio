@@ -42,17 +42,86 @@ interface BlogDocumentData {
      */
     description: prismicT.KeyTextField;
     /**
-     * contents field in *Blog*
+     * Slice zone field in *Blog*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.body[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    body: prismicT.SliceZone<BlogDocumentDataBodySlice>;
+}
+/**
+ * Item in Blog → Slice zone → `linkcard_1` → Items
+ *
+ */
+export interface BlogDocumentDataBodyLinkcard1SliceItem {
+    /**
+     * thumbnail field in *Blog → Slice zone → `linkcard_1` → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.body[].linkcard_1.items[].thumbnail1
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    thumbnail1: prismicT.ImageField<never>;
+    /**
+     * title field in *Blog → Slice zone → `linkcard_1` → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: カードタイトル
+     * - **API ID Path**: blog.body[].linkcard_1.items[].title1
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title1: prismicT.KeyTextField;
+    /**
+     * link field in *Blog → Slice zone → `linkcard_1` → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: カードをクリックした際の遷移先
+     * - **API ID Path**: blog.body[].linkcard_1.items[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+    /**
+     * color field in *Blog → Slice zone → `linkcard_1` → Items*
+     *
+     * - **Field Type**: Color
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.body[].linkcard_1.items[].color
+     * - **Documentation**: https://prismic.io/docs/core-concepts/color
+     *
+     */
+    color: prismicT.ColorField;
+}
+export type BlogDocumentDataBodyLinkcard1Slice = prismicT.Slice<"linkcard_1", Record<string, never>, Simplify<BlogDocumentDataBodyLinkcard1SliceItem>>;
+/**
+ * Primary content in Blog → Slice zone → `rich_editor` → Primary
+ *
+ */
+interface BlogDocumentDataBodyRichEditorSlicePrimary {
+    /**
+     * rich_editor field in *Blog → Slice zone → `rich_editor` → Primary*
      *
      * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: blog.contents
-     * - **Tab**: Main
+     * - **API ID Path**: blog.body[].rich_editor.primary.rich_editor
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    contents: prismicT.RichTextField;
+    rich_editor: prismicT.RichTextField;
 }
+export type BlogDocumentDataBodyRichEditorSlice = prismicT.Slice<"rich_editor", Simplify<BlogDocumentDataBodyRichEditorSlicePrimary>, never>;
+/**
+ * Slice for *Blog → Slice zone*
+ *
+ */
+type BlogDocumentDataBodySlice = BlogDocumentDataBodyLinkcard1Slice | BlogDocumentDataBodyRichEditorSlice;
 /**
  * Blog document from Prismic
  *
@@ -229,6 +298,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogDocumentData, BlogDocument, BlogsDocumentData, BlogsDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
+        export type { BlogDocumentData, BlogDocumentDataBodyLinkcard1SliceItem, BlogDocumentDataBodyLinkcard1Slice, BlogDocumentDataBodyRichEditorSlicePrimary, BlogDocumentDataBodyRichEditorSlice, BlogDocumentDataBodySlice, BlogDocument, BlogsDocumentData, BlogsDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
     }
 }
