@@ -1,5 +1,9 @@
 <template>
-  <PrismicRichText :field="slice.primary.rich_editor" />
+  <PrismicRichText
+    :field="slice.primary.rich_editor"
+    :html-serializer="htmlSerializer"
+    class="rich-editor"
+  />
 </template>
 
 <script>
@@ -11,8 +15,108 @@ export default {
   props: {
     slice: Object,
   },
-  created() {
-    console.log(this.slice.primary)
+
+  methods: {
+    //embedで整形の必要ありな部分が出てきたらいじる
+    htmlSerializer: function (type, element, text, children) {
+      // if (type === 'embed') {
+      // }
+      // return null
+    },
   },
 }
 </script>
+
+<style lang="scss">
+@import '@/styles/_variables.scss';
+
+.rich-editor {
+  padding: 0 140px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+
+  & .twitter-tweet {
+    margin: 0 auto;
+  }
+
+  & > h1 {
+    font-size: map-get($map: $font-sizes, $key: 'heading1');
+  }
+  & > h2 {
+    font-size: map-get($map: $font-sizes, $key: 'heading2');
+  }
+  & > h3 {
+    font-size: map-get($map: $font-sizes, $key: 'heading3');
+  }
+
+  & > h4 {
+    font-size: map-get($map: $font-sizes, $key: 'heading4');
+  }
+  & > h5 {
+    font-size: map-get($map: $font-sizes, $key: 'heading5');
+  }
+  & > h6 {
+    font-size: map-get($map: $font-sizes, $key: 'heading6');
+  }
+
+  & > p {
+    font-size: map-get($map: $font-sizes, $key: 'body');
+  }
+
+  & > ol {
+    & > li {
+      list-style: decimal;
+      list-style-position: inside;
+    }
+  }
+
+  & > ul {
+    & > li {
+      list-style: inside;
+    }
+  }
+
+  & img {
+    margin: 20px 0;
+    width: 100%;
+    height: auto;
+  }
+
+  & div {
+    &[data-type='article'] > a {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content max-content max-content;
+      row-gap: 20px;
+      padding: 20px;
+      border: 1px solid rgb(207, 217, 222);
+      border-radius: 12px;
+      transition-duration: 0.2s;
+
+      &:hover {
+        background-color: rgb(247, 249, 249);
+      }
+
+      & > img {
+        margin: 0;
+        grid-row: 2 / 3;
+        border-radius: 12px;
+      }
+
+      & > h1 {
+        grid-row: 1 / 2;
+        font-size: map-get($map: $font-sizes, $key: 'heading3');
+        color: map-get($map: $text-colors, $key: 'primary');
+      }
+
+      & > p {
+        grid-row: 3 / 4;
+        font-weight: 300;
+        font-size: map-get($map: $font-sizes, $key: 'text');
+        color: map-get($map: $text-colors, $key: 'grey');
+      }
+    }
+  }
+}
+</style>

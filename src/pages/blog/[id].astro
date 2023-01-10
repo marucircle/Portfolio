@@ -2,6 +2,7 @@
 import Layout from '@/layouts/mainLayout.astro'
 import SliceZone from '@/components/vue/prismic/SliceZone.vue'
 import { getAllBlog } from '@/api/blog'
+import dateFormat from '@/utils/dateFormat'
 
 export async function getStaticPaths() {
   const blogList = await getAllBlog()
@@ -18,5 +19,27 @@ const { blog } = Astro.props
 ---
 
 <Layout title="maru's room">
+  <div class="page-header">
+    <h1 class="title">{blog.data.title}</h1>
+    <p class="date">last update: {dateFormat(blog.last_publication_date)}</p>
+  </div>
   <SliceZone slices={blog.data.body} />
 </Layout>
+
+<style lang="scss">
+  @import '@/styles/_variables.scss';
+
+  .page-header {
+    margin: 0 60px 80px;
+  }
+  .title {
+    font-size: map-get($map: $font-sizes, $key: 'heading1');
+  }
+
+  .date {
+    margin-left: 5px;
+    font-weight: 300;
+    font-size: map-get($map: $font-sizes, $key: 'heading5');
+    color: map-get($map: $text-colors, $key: 'secondary');
+  }
+</style>
