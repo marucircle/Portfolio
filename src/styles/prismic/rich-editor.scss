@@ -55,6 +55,8 @@
 
   & div {
     &[data-type='article'] > a {
+      max-width: 510px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: max-content max-content max-content;
