@@ -21,17 +21,29 @@ import LinkButton from '@/components/astro/LinkButton.astro'
       <div class="profile-sns">
         <p class="profile-sns-heading">Please follow me!</p>
         <div class="profile-sns-grid">
-          <a class="profile-sns-link" href="https://github.com/marucircle">
+          <a
+            class="profile-sns-link"
+            href="https://github.com/marucircle"
+            aria-label="作者のGithubプロフィールを見る"
+          >
             <svg class="profile-sns-icon" viewBox="0 0 24 24">
               <use xlink:href="sns/github.svg#github"></use>
             </svg>
           </a>
-          <a class="profile-sns-link" href="https://twitter.com/kabitaya1133">
+          <a
+            class="profile-sns-link"
+            href="https://twitter.com/kabitaya1133"
+            aria-label="作者のTwitterプロフィールを見る"
+          >
             <svg class="profile-sns-icon sns-twitter" viewBox="0 0 400 400">
               <use xlink:href="sns/twitter.svg#twitter"></use>
             </svg>
           </a>
-          <a class="profile-sns-link" href="https://qiita.com/marumaru0113">
+          <a
+            class="profile-sns-link"
+            href="https://qiita.com/marumaru0113"
+            aria-label="作者のQiitaプロフィールを見る"
+          >
             <img class="profile-sns-icon" src="sns/qiita.png" alt="Qiitaのロゴアイコン" />
           </a>
         </div>
@@ -39,7 +51,7 @@ import LinkButton from '@/components/astro/LinkButton.astro'
     </div>
   </div>
   <footer class="profile-footer">
-    <LinkButton link="/feature" text="Read More!" />
+    <LinkButton link="/feature" text="Read More!" ariaLabel="このサイトの作者詳細を見る" />
   </footer>
 </section>
 

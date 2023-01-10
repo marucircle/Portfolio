@@ -4,27 +4,47 @@
       v-if="offset !== 1"
       class="pagination-link pagination-link-prev"
       :href="'/news/page/' + (offset - 1)"
+      aria-label="一つ前の一覧を見る"
       >Prev</a
     >
     <div class="pagination-flexbox">
-      <a v-if="offset !== 1" class="pagination-link" :href="'/news/page/' + 1">1</a>
+      <a
+        v-if="offset !== 1"
+        class="pagination-link"
+        :href="'/news/page/' + 1"
+        aria-label="最初の一覧を見る"
+        >1</a
+      >
       <span v-if="offset - 2 > 1">...</span>
-      <a v-if="offset - 1 > 1" class="pagination-link" :href="'/news/page/' + (offset - 1)">{{
-        offset - 1
-      }}</a>
+      <a
+        v-if="offset - 1 > 1"
+        class="pagination-link"
+        :href="'/news/page/' + (offset - 1)"
+        aria-label="一つ前の一覧を見る"
+        >{{ offset - 1 }}</a
+      >
       <span class="pagination-link pagination-link-active">{{ offset }}</span>
-      <a v-if="offset + 1 < maxPage" class="pagination-link" :href="'/news/page/' + (offset + 1)">{{
-        offset + 1
-      }}</a>
+      <a
+        v-if="offset + 1 < maxPage"
+        class="pagination-link"
+        :href="'/news/page/' + (offset + 1)"
+        aria-label="一つ次の一覧を見る"
+        >{{ offset + 1 }}</a
+      >
       <span v-if="offset + 2 < maxPage">...</span>
-      <a v-if="offset !== maxPage" class="pagination-link" :href="'/news/page/' + maxPage">{{
-        maxPage
-      }}</a>
+      <a
+        v-if="offset !== maxPage"
+        class="pagination-link"
+        :href="'/news/page/' + maxPage"
+        aria-label="最後の一覧を見る"
+        >{{ maxPage }}</a
+      >
     </div>
     <a
       v-if="offset !== maxPage"
       class="pagination-link pagination-link-next"
       :href="'/news/page/' + (offset + 1)"
+      aria-label="一つ次の一覧を見る"
       >Next</a
     >
   </div>

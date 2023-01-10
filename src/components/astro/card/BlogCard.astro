@@ -9,7 +9,7 @@ export interface Props {
 const { blog } = Astro.props
 ---
 
-<a href={'/blog/' + blog.id}>
+<a href={'/blog/' + blog.id} aria-label="記事の詳細を見る">
   <article class="card">
     <header class="card-header">
       <img

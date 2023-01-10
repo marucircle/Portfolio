@@ -15,7 +15,11 @@ const { links } = Astro.props
       links.map((link, i) => {
         return (
           <li class="breadcrumbs-item">
-            <a href={link.to} class="breadcrumbs-link">
+            <a
+              href={link.to}
+              class="breadcrumbs-link"
+              aria-label={'パンくずリストから' + link.label + 'ページへアクセスする'}
+            >
               {link.label}
             </a>
           </li>
