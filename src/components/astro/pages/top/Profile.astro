@@ -1,11 +1,17 @@
 ---
 import LinkButton from '@/components/astro/LinkButton.astro'
+
+type Props = {
+  hasDetailLink?: boolean
+}
+
+const { hasDetailLink = false } = Astro.props
 ---
 
 <section>
   <header class="profile-heading">
     <h1 class="profile-heading-title">Profile</h1>
-    <h3 class="profile-heading-description">Who Are You?</h3>
+    <h2 class="profile-heading-description">Who Are You?</h2>
   </header>
   <div class="profile">
     <img class="profile-image" src="face.jpeg" alt="作者のSNSアイコン" />
@@ -50,9 +56,13 @@ import LinkButton from '@/components/astro/LinkButton.astro'
       </div>
     </div>
   </div>
-  <footer class="profile-footer">
-    <LinkButton link="/feature" text="Read More!" ariaLabel="このサイトの作者詳細を見る" />
-  </footer>
+  {
+    hasDetailLink && (
+      <footer class="profile-footer">
+        <LinkButton link="/feature" text="Read More!" ariaLabel="このサイトの作者詳細を見る" />
+      </footer>
+    )
+  }
 </section>
 
 <style lang="scss">
