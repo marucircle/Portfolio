@@ -9,14 +9,14 @@ export interface Props {
 const { blog } = Astro.props
 ---
 
-<article class="card">
-  <a href={'/blog/' + blog.id}>
+<a href={'/blog/' + blog.id}>
+  <article class="card">
     <header class="card-header">
       <img
         class="card-header-image"
         src={blog.data.thumbnail.url}
         onerror="this.src = 'no-image.png';"
-        alt="News Image"
+        alt="記事のサムネイル画像"
       />
     </header>
     <section class="card-content">
@@ -26,8 +26,8 @@ const { blog } = Astro.props
     <footer class="card-footer">
       <p class="card-date">last update: {dateFormat(blog.last_publication_date)}</p>
     </footer>
-  </a>
-</article>
+  </article>
+</a>
 
 <style lang="scss">
   @import '@/styles/_variables.scss';
@@ -55,6 +55,7 @@ const { blog } = Astro.props
 
     &-title {
       font-size: map-get($map: $font-sizes, $key: 'heading3');
+      color: map-get($map: $text-colors, $key: 'primary');
       display: -webkit-box;
       height: 60px;
       -webkit-box-orient: vertical;
@@ -67,6 +68,7 @@ const { blog } = Astro.props
     &-description {
       margin-top: 10px;
       font-size: map-get($map: $font-sizes, $key: 'heading5');
+      color: map-get($map: $text-colors, $key: 'primary');
       display: -webkit-box;
       height: 67.5px;
       -webkit-box-orient: vertical;
