@@ -22,7 +22,7 @@ const blogList = await getTopBlog()
     <p class="page-logo-paragraph">Welcome to maru's room!</p>
   </div>
   <div class="page-section-list">
-    <Profile />
+    <Profile hasDetailLink={true} />
     <News newsList={newsList.results} />
     <Blog blogList={blogList.results} />
   </div>
