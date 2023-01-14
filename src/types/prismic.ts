@@ -6,6 +6,63 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Artifact documents */
+interface ArtifactDocumentData {
+    /**
+     * name field in *Artifact*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: 成果物名
+     * - **API ID Path**: artifact.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    name: prismicT.KeyTextField;
+    /**
+     * description field in *Artifact*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: 成果の詳細
+     * - **API ID Path**: artifact.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * link field in *Artifact*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: 参照するリンク
+     * - **API ID Path**: artifact.link
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+    /**
+     * thumbnail field in *Artifact*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: artifact.thumbnail
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    thumbnail: prismicT.ImageField<never>;
+}
+/**
+ * Artifact document from Prismic
+ *
+ * - **API ID**: `artifact`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArtifactDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ArtifactDocumentData>, "artifact", Lang>;
 /** Content for Blog documents */
 interface BlogDocumentData {
     /**
@@ -327,12 +384,12 @@ interface SkillDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SkillDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SkillDocumentData>, "skill", Lang>;
-export type AllDocumentTypes = BlogDocument | BlogsDocument | CareerDocument | NewsDocument | SkillDocument;
+export type AllDocumentTypes = ArtifactDocument | BlogDocument | BlogsDocument | CareerDocument | NewsDocument | SkillDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogDocumentData, BlogDocumentDataBodyLinkcard1SliceItem, BlogDocumentDataBodyLinkcard1Slice, BlogDocumentDataBodyRichEditorSlicePrimary, BlogDocumentDataBodyRichEditorSlice, BlogDocumentDataBodySlice, BlogDocument, BlogsDocumentData, BlogsDocument, CareerDocumentData, CareerDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
+        export type { ArtifactDocumentData, ArtifactDocument, BlogDocumentData, BlogDocumentDataBodyLinkcard1SliceItem, BlogDocumentDataBodyLinkcard1Slice, BlogDocumentDataBodyRichEditorSlicePrimary, BlogDocumentDataBodyRichEditorSlice, BlogDocumentDataBodySlice, BlogDocument, BlogsDocumentData, BlogsDocument, CareerDocumentData, CareerDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
     }
 }
