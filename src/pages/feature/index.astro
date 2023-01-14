@@ -2,17 +2,15 @@
 import Profile from '@/components/astro/pages/top/Profile.astro'
 import Career from '@/components/astro/pages/feature/Career.astro'
 import Layout from '@/layouts/mainLayout.astro'
+import { getCareerList } from '@/api/career'
 
-const careerMock = [
-  { text: 'テスト１', date: new Date() },
-  { text: 'テスト１', date: new Date() },
-]
+const careerList = await getCareerList()
 ---
 
 <Layout title="maru's room">
   <main class="content">
     <Profile hasDetailLink={false} />
-    <Career careers={careerMock} />
+    <Career careers={careerList} />
   </main>
 </Layout>
 

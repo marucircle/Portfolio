@@ -1,20 +1,18 @@
 ---
 //経歴用
 
-import SectionLayout from '@/layouts/SectionLayout.astro'
 import dateFormat from '@/utils/dateFormat'
+import type { CareerDocument } from '@/types/prismic'
+import SectionLayout from '@/layouts/SectionLayout.astro'
 
 type Props = {
-  careers: Array<{
-    date: Date | string
-    text: string
-  }>
+  careers: Array<CareerDocument>
 }
 
 const { careers } = Astro.props
 ---
 
-<SectionLayout title="Career" description="">
+<SectionLayout title="Career" description="" style={{ margin: '64px 0;' }}>
   <div class="career-content">
     {
       careers.map((career, i) => {
@@ -31,11 +29,11 @@ const { careers } = Astro.props
               <span class="career-unit-border">&nbsp;</span>
             </span>
             <div class="career-unit-center">
-              <span class="career-description-text">{career.text}</span>
+              <span class="career-description-text">{career.data.description}</span>
               <span class="career-unit-marker-border career-unit-marker">
                 <span class="career-unit-marker-circle">&nbsp;</span>
               </span>
-              <span class="career-description-date">{dateFormat(career.text)}</span>
+              <span class="career-description-date">{dateFormat(career.data.date)}</span>
             </div>
             {i === careers.length - 1 && (
               <span class="career-unit-border-wrapper">
@@ -75,7 +73,7 @@ const { careers } = Astro.props
       &-text {
         color: map-get($map: $text-colors, $key: 'grey');
         font-weight: bold;
-        font-size: map-get($map: $font-sizes, $key: 'heading3');
+        font-size: map-get($map: $font-sizes, $key: 'heading4');
         justify-self: right;
       }
 
@@ -115,7 +113,7 @@ const { careers } = Astro.props
       &-center {
         display: grid;
         align-items: center;
-        column-gap: 10px;
+        column-gap: 20px;
         grid-template-columns: 1fr max-content 1fr;
       }
 
