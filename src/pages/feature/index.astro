@@ -1,11 +1,18 @@
 ---
 import Profile from '@/components/astro/pages/top/Profile.astro'
+import Career from '@/components/astro/pages/feature/Career.astro'
 import Layout from '@/layouts/mainLayout.astro'
+
+const careerMock = [
+  { text: 'テスト１', date: new Date() },
+  { text: 'テスト１', date: new Date() },
+]
 ---
 
 <Layout title="maru's room">
   <main class="content">
     <Profile hasDetailLink={false} />
+    <Career careers={careerMock} />
   </main>
 </Layout>
 

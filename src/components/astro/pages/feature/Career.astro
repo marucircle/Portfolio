@@ -1,1 +1,141 @@
-<!-- 経歴 -->
+---
+//経歴用
+
+import SectionLayout from '@/layouts/SectionLayout.astro'
+import dateFormat from '@/utils/dateFormat'
+
+type Props = {
+  careers: Array<{
+    date: Date | string
+    text: string
+  }>
+}
+
+const { careers } = Astro.props
+---
+
+<SectionLayout title="Career" description="">
+  <div class="career-content">
+    {
+      careers.map((career, i) => {
+        return (
+          <div class="career-unit">
+            <span class="career-unit-border-wrapper">
+              {i === 0 && (
+                <span class="career-unit-border-dot">
+                  <span class="dot">&nbsp;</span>
+                  <span class="dot">&nbsp;</span>
+                  <span class="dot">&nbsp;</span>
+                </span>
+              )}
+              <span class="career-unit-border">&nbsp;</span>
+            </span>
+            <div class="career-unit-center">
+              <span class="career-description-text">{career.text}</span>
+              <span class="career-unit-marker-border career-unit-marker">
+                <span class="career-unit-marker-circle">&nbsp;</span>
+              </span>
+              <span class="career-description-date">{dateFormat(career.text)}</span>
+            </div>
+            {i === careers.length - 1 && (
+              <span class="career-unit-border-wrapper">
+                <span class="career-unit-border">&nbsp;</span>
+                <span class="career-unit-border-dot">
+                  <span class="dot">&nbsp;</span>
+                  <span class="dot">&nbsp;</span>
+                  <span class="dot">&nbsp;</span>
+                </span>
+              </span>
+            )}
+          </div>
+        )
+      })
+    }
+  </div>
+</SectionLayout>
+
+<style lang="scss">
+  @import '@/styles/_variables.scss';
+
+  .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: map-get($map: $bg-colors, $key: 'career');
+  }
+
+  .career {
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-description {
+      &-text {
+        color: map-get($map: $text-colors, $key: 'grey');
+        font-weight: bold;
+        font-size: map-get($map: $font-sizes, $key: 'heading3');
+        justify-self: right;
+      }
+
+      &-date {
+        color: map-get($map: $text-colors, $key: 'secondary');
+        font-weight: bold;
+        font-size: map-get($map: $font-sizes, $key: 'caption');
+        justify-self: left;
+      }
+    }
+
+    &-unit {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+
+      &-border {
+        display: inline-block;
+        background-color: map-get($map: $bg-colors, $key: 'career');
+        height: 50px;
+        width: 4px;
+        margin: 0 auto;
+        &-dot {
+          display: flex;
+          flex-direction: column;
+          row-gap: 5px;
+          margin: 0 auto;
+        }
+
+        &-wrapper {
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+        }
+      }
+
+      &-center {
+        display: grid;
+        align-items: center;
+        column-gap: 10px;
+        grid-template-columns: 1fr max-content 1fr;
+      }
+
+      &-marker {
+        grid-column: 2 / 3;
+        &-border {
+          display: inline-block;
+          border: 3px solid map-get($map: $border-colors, $key: 'career');
+          padding: 7px;
+          border-radius: 50%;
+        }
+
+        &-circle {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          background-color: map-get($map: $bg-colors, $key: 'career');
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+</style>
