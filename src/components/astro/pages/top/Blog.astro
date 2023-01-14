@@ -1,6 +1,7 @@
 ---
 import LinkButton from '@/components/astro/LinkButton.astro'
 import BlogCard from '@/components/astro/card/BlogCard.astro'
+import SectionLayout from '@/layouts/SectionLayout.astro'
 import type { BlogDocument } from '@/types/prismic'
 
 type Props = {
@@ -10,11 +11,7 @@ type Props = {
 const { blogList } = Astro.props
 ---
 
-<section class="news">
-  <header class="news-heading">
-    <h1 class="news-heading-title">Blog</h1>
-    <h2 class="news-heading-description">What are you doing?</h2>
-  </header>
+<SectionLayout title="Blog" description="What are you doing?">
   <div class="news-content">
     {
       blogList.map((blog) => {
@@ -25,27 +22,12 @@ const { blogList } = Astro.props
   <footer class="news-footer">
     <LinkButton link="/blog/page/1" text="Read More!" ariaLabel="このサイトの記事一覧を見る" />
   </footer>
-</section>
+</SectionLayout>
 
 <style lang="scss">
   @import '@/styles/_variables.scss';
   .news {
-    &-heading {
-      &-title {
-        font-size: map-get($map: $font-sizes, $key: 'title');
-        text-align: center;
-      }
-
-      &-description {
-        text-align: center;
-        font-size: map-get($map: $font-sizes, $key: 'heading4');
-        font-weight: 300;
-        color: map-get($map: $text-colors, $key: 'grey');
-      }
-    }
-
     &-content {
-      margin: 64px 10%;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 20px;
@@ -53,6 +35,7 @@ const { blogList } = Astro.props
 
     &-footer {
       margin: 0 120px;
+      margin-top: 40px;
     }
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import LinkButton from '@/components/astro/LinkButton.astro'
+import SectionLayout from '@/layouts/SectionLayout.astro'
 
 type Props = {
   hasDetailLink?: boolean
@@ -8,11 +9,7 @@ type Props = {
 const { hasDetailLink = false } = Astro.props
 ---
 
-<section>
-  <header class="profile-heading">
-    <h1 class="profile-heading-title">Profile</h1>
-    <h2 class="profile-heading-description">Who Are You?</h2>
-  </header>
+<SectionLayout title="Profile" description="Who are you?">
   <div class="profile">
     <img class="profile-image" src="face.jpeg" alt="作者のSNSアイコン" />
     <div class="profile-info">
@@ -63,12 +60,11 @@ const { hasDetailLink = false } = Astro.props
       </footer>
     )
   }
-</section>
+</SectionLayout>
 
 <style lang="scss">
   @import '@/styles/_variables.scss';
   .profile {
-    margin: 64px 10%;
     display: flex;
     grid-column-gap: 20px;
     align-items: center;
@@ -140,6 +136,7 @@ const { hasDetailLink = false } = Astro.props
 
     &-footer {
       margin: 0 120px;
+      margin-top: 40px;
     }
   }
 
