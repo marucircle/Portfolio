@@ -1,0 +1,39 @@
+---
+type Props = {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<section>
+  <header class="heading">
+    <h1 class="heading-title">{title}</h1>
+    <h2 class="heading-description">{description}</h2>
+  </header>
+  <div class="wrapper">
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  @import '@/styles/_variables.scss';
+  .heading {
+    &-title {
+      font-size: map-get($map: $font-sizes, $key: 'title');
+      text-align: center;
+    }
+
+    &-description {
+      text-align: center;
+      font-size: map-get($map: $font-sizes, $key: 'heading4');
+      font-weight: 300;
+      color: map-get($map: $text-colors, $key: 'grey');
+    }
+  }
+
+  .wrapper {
+    margin: 64px 10%;
+  }
+</style>
