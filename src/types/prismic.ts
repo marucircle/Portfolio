@@ -189,6 +189,41 @@ interface BlogsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type BlogsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogsDocumentData>, "blogs", Lang>;
+/** Content for Career documents */
+interface CareerDocumentData {
+    /**
+     * description field in *Career*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: 何があったかを記載する
+     * - **API ID Path**: career.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * date field in *Career*
+     *
+     * - **Field Type**: Date
+     * - **Placeholder**: それが起きた日時
+     * - **API ID Path**: career.date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/date
+     *
+     */
+    date: prismicT.DateField;
+}
+/**
+ * Career document from Prismic
+ *
+ * - **API ID**: `career`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CareerDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<CareerDocumentData>, "career", Lang>;
 /** Content for News documents */
 interface NewsDocumentData {
     /**
@@ -292,12 +327,12 @@ interface SkillDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SkillDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SkillDocumentData>, "skill", Lang>;
-export type AllDocumentTypes = BlogDocument | BlogsDocument | NewsDocument | SkillDocument;
+export type AllDocumentTypes = BlogDocument | BlogsDocument | CareerDocument | NewsDocument | SkillDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogDocumentData, BlogDocumentDataBodyLinkcard1SliceItem, BlogDocumentDataBodyLinkcard1Slice, BlogDocumentDataBodyRichEditorSlicePrimary, BlogDocumentDataBodyRichEditorSlice, BlogDocumentDataBodySlice, BlogDocument, BlogsDocumentData, BlogsDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
+        export type { BlogDocumentData, BlogDocumentDataBodyLinkcard1SliceItem, BlogDocumentDataBodyLinkcard1Slice, BlogDocumentDataBodyRichEditorSlicePrimary, BlogDocumentDataBodyRichEditorSlice, BlogDocumentDataBodySlice, BlogDocument, BlogsDocumentData, BlogsDocument, CareerDocumentData, CareerDocument, NewsDocumentData, NewsDocument, SkillDocumentData, SkillDocument, AllDocumentTypes };
     }
 }
