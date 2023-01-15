@@ -1,1 +1,25 @@
-<!-- 成果物 -->
+---
+import SectionLayout from '@/layouts/SectionLayout.astro'
+import { getArtifactList } from '@/api/artifact'
+import ArtifactCard from '../../card/ArtifactCard.astro'
+
+const artifactList = await getArtifactList()
+---
+
+<SectionLayout title="Artifact" description="My work">
+  <div class="content">
+    {
+      artifactList.map((artifact) => {
+        return <ArtifactCard artifact={artifact} />
+      })
+    }
+  </div>
+</SectionLayout>
+
+<style lang="scss">
+  .content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
+  }
+</style>

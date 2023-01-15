@@ -3,6 +3,7 @@ import Profile from '@/components/astro/pages/top/Profile.astro'
 import Career from '@/components/astro/pages/feature/Career.astro'
 import Layout from '@/layouts/mainLayout.astro'
 import { getCareerList } from '@/api/career'
+import Artifacts from '@/components/astro/pages/feature/Artifacts.astro'
 
 const careerList = await getCareerList()
 ---
@@ -11,6 +12,7 @@ const careerList = await getCareerList()
   <main class="content">
     <Profile hasDetailLink={false} />
     <Career careers={careerList} />
+    <Artifacts />
   </main>
 </Layout>
 
