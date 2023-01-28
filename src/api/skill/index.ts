@@ -1,7 +1,7 @@
 import * as prismic from '@prismicio/client'
 import CMSClient from '../client'
 
-export const getSkillList = async (tags: Array<string>) => {
+export const getSkillList = async ({ tags }: { tags: Array<string> }) => {
   return await CMSClient.getAllByType('skill', {
     orderings: {
       field: 'document.level',

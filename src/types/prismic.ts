@@ -343,14 +343,14 @@ interface SkillDocumentData {
     /**
      * name field in *Skills*
      *
-     * - **Field Type**: Title
-     * - **Placeholder**: スキル名
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
      * - **API ID Path**: skill.name
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    name: prismicT.TitleField;
+    name: prismicT.KeyTextField;
     /**
      * level field in *Skills*
      *

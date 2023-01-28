@@ -1,13 +1,10 @@
 ---
 import SectionLayout from '@/layouts/SectionLayout.astro'
-import { SkillRadar } from '@/components/react/SkillRadar'
-//スキルをグラフで表示
+import { SkillViewContainer } from '@/components/react/container/SkillViewContainer'
 ---
 
 <SectionLayout title="Skills" description="What can you do?">
-  <div>
-    <SkillRadar />
-  </div>
+  <SkillViewContainer client:load />
 </SectionLayout>
 
 <style lang="scss"></style>
