@@ -1,4 +1,5 @@
 import type React from 'react'
+import Styles from '@/styles/react/molecules/select_box.module.scss'
 
 export const SelectBox = ({
   value,
@@ -12,7 +13,7 @@ export const SelectBox = ({
   onChange: React.ChangeEventHandler<HTMLSelectElement>
 }) => {
   return (
-    <select onChange={onChange} value={value}>
+    <select onChange={onChange} value={value} className={Styles['select-box']}>
       {options.map((option) => {
         return (
           <option value={option} selected={option === value} key={option}>

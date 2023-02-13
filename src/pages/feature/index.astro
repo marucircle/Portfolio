@@ -25,6 +25,10 @@ const careerList = await getCareerList()
     display: flex;
     flex-direction: column;
     row-gap: 40px;
+
+    @include sp {
+      margin: 40px 20px;
+    }
   }
 
   .title {

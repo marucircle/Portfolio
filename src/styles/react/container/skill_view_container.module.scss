@@ -1,0 +1,33 @@
+@import '@/styles/_variables.scss';
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.select-box {
+  &-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+  }
+}
+
+@include sp {
+  .select-box {
+    &-list {
+      grid-template-columns: 1fr;
+      grid-row-gap: 30px;
+    }
+  }
+}
+
+.skill-radar-container {
+  margin-top: 60px;
+  height: 500px;
+  margin: auto;
+  max-height: 600px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+}

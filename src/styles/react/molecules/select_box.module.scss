@@ -1,0 +1,8 @@
+@import '@/styles/_variables.scss';
+
+.select-box {
+  padding: 10px 0;
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid map-get($map: $border-colors, $key: 'primary');
+}

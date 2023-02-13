@@ -97,4 +97,29 @@
       }
     }
   }
+
+  @include sp {
+    .footer {
+      grid-template-columns: 1fr;
+      grid-row-gap: 50px;
+      justify-items: center;
+
+      &-section {
+        &-list {
+          grid-template-columns: 1fr;
+          grid-row-gap: 40px;
+        }
+        &-grid {
+          display: flex;
+          justify-content: space-between;
+          column-gap: 15px;
+          & > li {
+            &:not(:first-child) {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

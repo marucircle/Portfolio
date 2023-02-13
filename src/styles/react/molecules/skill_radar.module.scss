@@ -1,0 +1,14 @@
+@import '@/styles/_variables.scss';
+
+.container {
+  z-index: 0;
+  margin: auto;
+}
+
+.skill-radar {
+  z-index: 0;
+  @include sp {
+    scale: 0.6;
+  }
+  width: 100%;
+}

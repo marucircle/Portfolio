@@ -2,6 +2,7 @@ import { SkillRadar } from '@/components/react/molecules/SkillRadar'
 import { useSkillList } from '@/hooks/useSkillList'
 import { SelectBox } from '../molecules/SelectBox'
 import { SkillTypeFieldList, SkillTypeKey } from '@/constants/SkillTag'
+import Styles from '@/styles/react/container/skill_view_container.module.scss'
 
 export const SkillViewContainer = () => {
   const {
@@ -15,8 +16,8 @@ export const SkillViewContainer = () => {
   } = useSkillList()
 
   return (
-    <div>
-      <div>
+    <div className={Styles['container']}>
+      <div className={Styles['select-box-list']}>
         <SelectBox
           options={Object.keys(SkillTypeFieldList)}
           defaultValue="frontend"
@@ -34,7 +35,9 @@ export const SkillViewContainer = () => {
           }}
         />
       </div>
-      {!isLoading && <SkillRadar skillList={skillList} />}
+      <div className={Styles['skill-radar-container']}>
+        {!isLoading && <SkillRadar skillList={skillList} />}
+      </div>
     </div>
   )
 }
