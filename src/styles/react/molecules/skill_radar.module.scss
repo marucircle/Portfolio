@@ -7,8 +7,8 @@
 
 .skill-radar {
   z-index: 0;
+  width: 100%;
   @include sp {
     scale: 0.6;
   }
-  width: 100%;
 }

@@ -1,4 +1,5 @@
 import type { SkillDocument } from '@/types/prismic'
+import { ResponsiveRadar } from '@nivo/radar'
 import {
   Radar,
   RadarChart,
@@ -18,19 +19,20 @@ const trimmedSkillGraphData = (skillList: Array<SkillDocument>) => {
 export const SkillRadar = ({ skillList }: { skillList: Array<SkillDocument> }) => {
   const graphData = trimmedSkillGraphData(skillList)
   return (
-    <ResponsiveContainer width="100%" height="100%" className={Styles['container']}>
-      <RadarChart
-        cx="50%"
-        cy="50%"
-        className={Styles['skill-radar']}
-        outerRadius={150}
-        data={graphData}
-      >
-        <PolarGrid />
-        <PolarAngleAxis dataKey="name" />
-        <PolarRadiusAxis domain={[0, 10]} tick={false} axisLine={false} />
-        <Radar name="Skill" dataKey="level" stroke="#8884d8" fill="#8884d8" fillOpacity={0.8} />
-      </RadarChart>
-    </ResponsiveContainer>
+    <ResponsiveRadar
+      data={graphData}
+      keys={['level']}
+      indexBy="name"
+      valueFormat=">-.2f"
+      margin={{ top: 30, right: 80, bottom: 30, left: 80 }}
+      borderColor={{ from: 'color' }}
+      gridLabelOffset={18}
+      dotSize={10}
+      dotColor={{ theme: 'background' }}
+      dotBorderWidth={2}
+      colors={{ scheme: 'nivo' }}
+      blendMode="multiply"
+      motionConfig="wobbly"
+    />
   )
 }
