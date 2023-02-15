@@ -14,15 +14,15 @@ const { hasDetailLink = false } = Astro.props
     <img class="profile-image" src="face.jpeg" alt="作者のSNSアイコン" />
     <div class="profile-info">
       <div>
-        <p class="profile-info-my-name">maru (まる)</p>
+        <p class="profile-info-my-name">まる</p>
       </div>
       <ul class="profile-info-description-list">
-        <li class="profile-info-description">Frontend Developer</li>
-        <li class="profile-info-descriotion">Rhythm Game Nerd</li>
-        <li class="profile-info-descriotion">Can't understand English...</li>
+        <li class="profile-info-description">フロントエンドエンジニア</li>
+        <li class="profile-info-descriotion">音ゲー愛好家</li>
+        <li class="profile-info-descriotion">英語教えてくれ</li>
       </ul>
       <div class="profile-sns">
-        <p class="profile-sns-heading">Please follow me!</p>
+        <p class="profile-sns-heading">SNS</p>
         <div class="profile-sns-grid">
           <a
             class="profile-sns-link"
@@ -56,7 +56,7 @@ const { hasDetailLink = false } = Astro.props
   {
     hasDetailLink && (
       <footer class="profile-footer">
-        <LinkButton link="/feature" text="Read More!" ariaLabel="このサイトの作者詳細を見る" />
+        <LinkButton link="/feature" text="詳細を見てみる" ariaLabel="このサイトの作者詳細を見る" />
       </footer>
     )
   }

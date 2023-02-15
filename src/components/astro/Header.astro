@@ -1,7 +1,9 @@
+---
+import SmallLogo from '@public/logo-small.png'
+---
+
 <header class="header">
-  <svg class="header-logo" viewBox="0 0 1000 191">
-    <use xlink:href="/logo-white.svg#logo"></use>
-  </svg>
+  <img src={SmallLogo} class="header-logo" alt="ヘッダーロゴ画像" />
   <ul class="header-link-list">
     <li class="header-link"><a href="/" aria-label="このサイトのホームページを見る">Home</a></li>
     <li class="header-link">
@@ -24,6 +26,7 @@
     position: sticky;
     inset: 0;
     grid-template-columns: max-content 1fr;
+    align-items: center;
     column-gap: 80px;
     background-color: map-get($map: $bg-colors, $key: 'dark-grey');
     z-index: map-get($map: $layers, $key: 'header');
@@ -49,8 +52,7 @@
     }
 
     &-logo {
-      width: 100px;
-      height: 60px;
+      width: 60px;
     }
   }
 </style>
