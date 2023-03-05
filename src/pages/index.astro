@@ -45,6 +45,10 @@ const blogList = await getTopBlog()
       margin: auto;
       width: 350px;
 
+      @include sp {
+        width: 200px;
+      }
+
       &-paragraph {
         margin-top: 10px;
         font-weight: 300;
