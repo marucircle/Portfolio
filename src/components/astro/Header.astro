@@ -1,9 +1,4 @@
----
-import SmallLogo from '@public/logo-small.png'
----
-
 <header class="header">
-  <img src={SmallLogo} class="header-logo" alt="ヘッダーロゴ画像" />
   <ul class="header-link-list">
     <li class="header-link"><a href="/" aria-label="このサイトのホームページを見る">Home</a></li>
     <li class="header-link">
@@ -25,7 +20,7 @@ import SmallLogo from '@public/logo-small.png'
     display: grid;
     position: sticky;
     inset: 0;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     column-gap: 80px;
     background-color: map-get($map: $bg-colors, $key: 'dark-grey');
