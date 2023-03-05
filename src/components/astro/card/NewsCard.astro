@@ -37,6 +37,16 @@ const { news } = Astro.props
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
+    @include tablet {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    @include sp {
+      width: 100%;
+      max-width: 300px;
+    }
+
     &-header {
       text-align: center;
       background-color: map-get($map: $bg-colors, $key: 'grey');
