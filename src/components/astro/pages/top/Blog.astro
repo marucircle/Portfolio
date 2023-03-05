@@ -20,7 +20,7 @@ const { blogList } = Astro.props
     }
   </div>
   <footer class="news-footer">
-    <LinkButton link="/blog/page/1" text="Read More!" ariaLabel="このサイトの記事一覧を見る" />
+    <LinkButton link="/blog/page/1" text="一覧を見てみる" ariaLabel="このサイトの記事一覧を見る" />
   </footer>
 </SectionLayout>
 
@@ -31,11 +31,27 @@ const { blogList } = Astro.props
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 20px;
+      justify-items: center;
+
+      @include tablet {
+        grid-template-columns: 1fr;
+        grid-row-gap: 40px;
+      }
+
+      @include sp {
+        grid-template-columns: 1fr;
+        grid-row-gap: 40px;
+      }
     }
 
     &-footer {
       margin: 0 120px;
       margin-top: 40px;
+
+      @include sp {
+        margin: 0;
+        margin-top: 40px;
+      }
     }
   }
 </style>

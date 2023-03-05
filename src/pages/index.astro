@@ -3,6 +3,7 @@ import Layout from '../layouts/mainLayout.astro'
 import Profile from '@/components/astro/pages/top/Profile.astro'
 import News from '../components/astro/pages/top/News.astro'
 import Blog from '../components/astro/pages/top/Blog.astro'
+import Logo from '@public/logo.png'
 
 import { getTopNews } from '../api/news'
 import { getTopBlog } from '../api/blog'
@@ -12,14 +13,12 @@ const newsList = await getTopNews()
 const blogList = await getTopBlog()
 ---
 
-<Layout title="maru's room">
+<Layout title="まる家">
   <div class="page-firstview">
     <div class="page-logo-wrapper">
-      <svg class="page-logo" viewBox="0 0 1000 191">
-        <use xlink:href="logo-1.svg#logo"></use>
-      </svg>
+      <img src={Logo} alt="ロゴ画像" class="page-logo" />
     </div>
-    <p class="page-logo-paragraph">Welcome to maru's room!</p>
+    <p class="page-logo-paragraph">まるのポートフォリオ兼個人サイト</p>
   </div>
   <div class="page-section-list">
     <Profile hasDetailLink={true} />
@@ -44,7 +43,12 @@ const blogList = await getTopBlog()
 
     &-logo {
       margin: auto;
-      width: 500px;
+      width: 350px;
+
+      @include sp {
+        width: 100%;
+        max-width: 200px;
+      }
 
       &-paragraph {
         margin-top: 10px;

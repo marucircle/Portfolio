@@ -1,20 +1,21 @@
-import { defineConfig } from 'astro/config';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-import vue from "@astrojs/vue";
-import react from '@astrojs/react';
+import { defineConfig } from 'astro/config'
+import { fileURLToPath } from 'url'
+import path, { dirname } from 'path'
+import vue from '@astrojs/vue'
+import react from '@astrojs/react'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(),react()],
+  integrations: [vue(), react()],
   vite: {
     resolve: {
       alias: {
-        '@/': `${path.resolve(__dirname, 'src')}/`
-      }
+        '@/': `${path.resolve(__dirname, 'src')}/`,
+        '@public/': `${path.resolve(__dirname, 'public')}/`,
+      },
     },
-  }
-});
+  },
+})

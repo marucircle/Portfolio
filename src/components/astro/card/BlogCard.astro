@@ -9,7 +9,7 @@ export interface Props {
 const { blog } = Astro.props
 ---
 
-<a href={'/blog/' + blog.id} aria-label="記事の詳細を見る">
+<a href={'/blog/' + blog.id} aria-label="記事の詳細を見る" class="card-wrapper">
   <article class="card">
     <header class="card-header">
       <img
@@ -38,6 +38,17 @@ const { blog } = Astro.props
     grid-template-rows: 150px 1fr max-content;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    &-wrapper {
+      width: 100%;
+      @include tablet {
+        max-width: 400px;
+      }
+
+      @include sp {
+        max-width: 300px;
+      }
+    }
 
     &-header {
       text-align: center;

@@ -52,6 +52,10 @@ console.log(artifact)
       text-overflow: ellipsis;
       white-space: break-spaces;
       color: map-get($map: $text-colors, $key: 'white');
+      @include sp {
+        font-size: map-get($map: $font-sizes, $key: 'heading4');
+        height: 58px;
+      }
     }
 
     &-description {
@@ -65,6 +69,10 @@ console.log(artifact)
       text-overflow: ellipsis;
       white-space: break-spaces;
       color: map-get($map: $text-colors, $key: 'white');
+      @include sp {
+        font-size: map-get($map: $font-sizes, $key: 'text');
+        height: 57px;
+      }
     }
   }
 </style>

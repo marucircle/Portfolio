@@ -8,24 +8,24 @@ import type { NewsDocument } from '@/types/prismic'
 
 export async function getStaticPaths({ paginate }: any) {
   const entries = await getAllNews()
-  return paginate(entries, { pageSize: 1 })
+  return paginate(entries, { pageSize: 9 })
 }
 
 const { page } = Astro.props
 ---
 
-<Layout title="maru's room">
+<Layout title="News">
   <div class="title">
     <h1 class="title-heading">News</h1>
     <h3 class="title-description">What's going on?</h3>
   </div>
-  <main class="content">
+  <section class="content">
     {
       page.data.map((news: NewsDocument) => {
         return <NewsCard news={news} />
       })
     }
-  </main>
+  </section>
   <div class="pagination-wrapper">
     <Pagination offset={page.currentPage} maxPage={page.total} />
   </div>
@@ -38,6 +38,16 @@ const { page } = Astro.props
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
+    grid-row-gap: 40px;
+    justify-items: center;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+
+    @include sp {
+      grid-template-columns: 1fr;
+    }
   }
 
   .title {
