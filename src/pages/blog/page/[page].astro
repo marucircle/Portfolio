@@ -19,15 +19,15 @@ const { page } = Astro.props
     <h1 class="title-heading">Blog</h1>
     <h3 class="title-description">What are you doing?</h3>
   </div>
-  <main class="content">
+  <section class="content">
     {
       page.data.map((news: NewsDocument) => {
         return <NewsCard news={news} />
       })
     }
-  </main>
+  </section>
   <div class="pagination-wrapper">
-    <Pagination offset={page.currentPage} maxPage={page.total} />
+    <Pagination offset={page.currentPage} maxPage={page.lastPage} />
   </div>
 </Layout>
 
