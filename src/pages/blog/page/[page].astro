@@ -8,7 +8,7 @@ import type { NewsDocument } from '@/types/prismic'
 
 export async function getStaticPaths({ paginate }: any) {
   const entries = await getAllBlog()
-  return paginate(entries, { pageSize: 1 })
+  return paginate(entries, { pageSize: 9 })
 }
 
 const { page } = Astro.props
@@ -38,6 +38,7 @@ const { page } = Astro.props
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
+    grid-row-gap: 20px;
   }
 
   .title {
