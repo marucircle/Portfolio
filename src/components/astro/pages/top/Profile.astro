@@ -10,47 +10,45 @@ const { hasDetailLink = false } = Astro.props
 ---
 
 <SectionLayout title="Profile" description="Who are you?">
-  <div class="profile">
-    <img class="profile-image" src="face.jpeg" alt="作者のSNSアイコン" />
-    <div class="profile-info">
-      <div>
-        <p class="profile-info-my-name">まる</p>
-      </div>
-      <ul class="profile-info-description-list">
-        <li class="profile-info-description">フロントエンドエンジニア</li>
-        <li class="profile-info-descriotion">音ゲー愛好家</li>
-        <li class="profile-info-descriotion">英語教えてくれ</li>
+  <p class="profile-name">まる</p>
+  <div class="profile-main">
+    <img class="profile-main-image" src="face.jpeg" alt="作者のSNSアイコン" />
+    <div class="profile-main-info">
+      <ul class="profile-main-info-description-list">
+        <li class="profile-main-info-description">フロントエンドエンジニア</li>
+        <li class="profile-main-info-descriotion">音ゲー愛好家</li>
+        <li class="profile-main-info-descriotion">英語教えてくれ</li>
       </ul>
-      <div class="profile-sns">
-        <p class="profile-sns-heading">SNS</p>
-        <div class="profile-sns-grid">
-          <a
-            class="profile-sns-link"
-            href="https://github.com/marucircle"
-            aria-label="作者のGithubプロフィールを見る"
-          >
-            <svg class="profile-sns-icon" viewBox="0 0 24 24">
-              <use xlink:href="sns/github.svg#github"></use>
-            </svg>
-          </a>
-          <a
-            class="profile-sns-link"
-            href="https://twitter.com/kabitaya1133"
-            aria-label="作者のTwitterプロフィールを見る"
-          >
-            <svg class="profile-sns-icon sns-twitter" viewBox="0 0 400 400">
-              <use xlink:href="sns/twitter.svg#twitter"></use>
-            </svg>
-          </a>
-          <a
-            class="profile-sns-link"
-            href="https://qiita.com/marumaru0113"
-            aria-label="作者のQiitaプロフィールを見る"
-          >
-            <img class="profile-sns-icon" src="sns/qiita.png" alt="Qiitaのロゴアイコン" />
-          </a>
-        </div>
-      </div>
+    </div>
+  </div>
+  <div class="profile-sns">
+    <p class="profile-sns-heading">SNS</p>
+    <div class="profile-sns-grid">
+      <a
+        class="profile-sns-link"
+        href="https://github.com/marucircle"
+        aria-label="作者のGithubプロフィールを見る"
+      >
+        <svg class="profile-sns-icon" viewBox="0 0 24 24">
+          <use xlink:href="sns/github.svg#github"></use>
+        </svg>
+      </a>
+      <a
+        class="profile-sns-link"
+        href="https://twitter.com/kabitaya1133"
+        aria-label="作者のTwitterプロフィールを見る"
+      >
+        <svg class="profile-sns-icon sns-twitter" viewBox="0 0 400 400">
+          <use xlink:href="sns/twitter.svg#twitter"></use>
+        </svg>
+      </a>
+      <a
+        class="profile-sns-link"
+        href="https://qiita.com/marumaru0113"
+        aria-label="作者のQiitaプロフィールを見る"
+      >
+        <img class="profile-sns-icon" src="sns/qiita.png" alt="Qiitaのロゴアイコン" />
+      </a>
     </div>
   </div>
   {
@@ -65,51 +63,70 @@ const { hasDetailLink = false } = Astro.props
 <style lang="scss">
   @import '@/styles/_variables.scss';
   .profile {
-    display: flex;
-    grid-column-gap: 20px;
-    align-items: center;
-    align-content: center;
-    justify-content: space-around;
-    &-image {
-      width: 25%;
-      height: auto;
-      border-radius: 50%;
+    &-name {
+      font-size: map-get($map: $font-sizes, $key: 'heading1');
+      font-weight: bold;
+      text-align: center;
     }
+    &-main {
+      display: flex;
+      column-gap: 20px;
+      align-items: center;
+      align-content: center;
+      justify-content: space-around;
 
-    &-heading {
-      &-title {
-        font-size: map-get($map: $font-sizes, $key: 'title');
-        text-align: center;
+      @include sp {
+        flex-direction: column;
+        row-gap: 30px;
+      }
+      &-image {
+        width: 25%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 50%;
+
+        @include sp {
+          width: 150px;
+        }
       }
 
-      &-description {
-        text-align: center;
-        font-size: map-get($map: $font-sizes, $key: 'heading4');
-        font-weight: 300;
-        color: map-get($map: $text-colors, $key: 'grey');
-      }
-    }
+      &-heading {
+        &-title {
+          font-size: map-get($map: $font-sizes, $key: 'title');
+          text-align: center;
+        }
 
-    &-info {
-      &-my-name {
-        font-size: map-get($map: $font-sizes, $key: 'heading1');
-        font-weight: bold;
+        &-description {
+          text-align: center;
+          font-size: map-get($map: $font-sizes, $key: 'heading4');
+          font-weight: 300;
+          color: map-get($map: $text-colors, $key: 'grey');
+        }
       }
-      &-description {
-        &-list {
-          display: flex;
-          flex-direction: column;
-          row-gap: 10px;
-          padding: 10px 15px;
-          margin-top: 10px;
-          border-left: 5px solid #555555;
-          list-style: none;
+
+      &-info {
+        &-description {
+          &-list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-left: 5px solid #555555;
+            list-style: none;
+          }
         }
       }
     }
 
     &-sns {
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 45px;
+      width: 400px;
+      @include sp {
+        width: 250px;
+      }
       &-heading {
         text-align: center;
         font-size: map-get($map: $font-sizes, $key: 'heading4');
