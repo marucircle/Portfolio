@@ -21,15 +21,12 @@ export const useSkillList = () => {
 
   useEffect(() => {
     setIsLoading(true)
-    console.log(SkillTypeList, selectedSkillField)
     getSkillList({ tags: [skillSet.type, selectedSkillField] })
       .then((res: SkillDocument<string>[]) => {
         setSkillList(res)
-        console.log(res)
         setIsLoading(false)
       })
       .catch((e) => {
-        console.log(e)
         setIsError(true)
       })
   }, [skillSet.type, selectedSkillField])
