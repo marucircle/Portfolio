@@ -67,6 +67,10 @@ const { hasDetailLink = false } = Astro.props
       font-size: map-get($map: $font-sizes, $key: 'heading1');
       font-weight: bold;
       text-align: center;
+
+      @include sp {
+        font-size: map-get($map: $font-sizes, $key: 'heading2');
+      }
     }
     &-main {
       display: flex;
@@ -86,7 +90,8 @@ const { hasDetailLink = false } = Astro.props
         border-radius: 50%;
 
         @include sp {
-          width: 150px;
+          width: 100%;
+          max-width: 120px;
         }
       }
 
@@ -114,6 +119,9 @@ const { hasDetailLink = false } = Astro.props
             margin-top: 10px;
             border-left: 5px solid #555555;
             list-style: none;
+            @include sp {
+              row-gap: 5px;
+            }
           }
         }
       }
@@ -125,7 +133,7 @@ const { hasDetailLink = false } = Astro.props
       margin-top: 45px;
       width: 400px;
       @include sp {
-        width: 250px;
+        width: 200px;
       }
       &-heading {
         text-align: center;
@@ -154,6 +162,11 @@ const { hasDetailLink = false } = Astro.props
     &-footer {
       margin: 0 120px;
       margin-top: 40px;
+
+      @include sp {
+        margin: 0;
+        margin-top: 40px;
+      }
     }
   }
 

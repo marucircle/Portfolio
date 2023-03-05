@@ -30,6 +30,10 @@ const { title, description, style } = Astro.props
     &-title {
       font-size: map-get($map: $font-sizes, $key: 'title');
       text-align: center;
+
+      @include sp {
+        font-size: map-get($map: $font-sizes, $key: 'heading1');
+      }
     }
 
     &-description {
@@ -37,6 +41,9 @@ const { title, description, style } = Astro.props
       font-size: map-get($map: $font-sizes, $key: 'heading4');
       font-weight: 300;
       color: map-get($map: $text-colors, $key: 'grey');
+      @include sp {
+        font-size: map-get($map: $font-sizes, $key: 'heading5');
+      }
     }
   }
 

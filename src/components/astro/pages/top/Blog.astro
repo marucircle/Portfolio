@@ -47,6 +47,11 @@ const { blogList } = Astro.props
     &-footer {
       margin: 0 120px;
       margin-top: 40px;
+
+      @include sp {
+        margin: 0;
+        margin-top: 40px;
+      }
     }
   }
 </style>
