@@ -1,5 +1,6 @@
 ---
 import type { BlogDocument } from '@/types/prismic'
+import NoImage from '@public/no-image.png'
 import dateFormat from '@/utils/dateFormat'
 
 export interface Props {
@@ -14,8 +15,7 @@ const { blog } = Astro.props
     <header class="card-header">
       <img
         class="card-header-image"
-        src={blog.data.thumbnail.url}
-        onerror="this.src = 'no-image.png';"
+        src={blog.data.thumbnail.url ?? NoImage}
         alt="記事のサムネイル画像"
       />
     </header>
