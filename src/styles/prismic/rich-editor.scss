@@ -10,6 +10,10 @@
     margin: 0 auto;
   }
 
+  & > .block-img {
+    margin: 0 auto;
+  }
+
   & > h1 {
     font-size: map-get($map: $font-sizes, $key: 'heading1');
   }
@@ -48,8 +52,10 @@
   }
 
   & img {
+    text-align: center;
     margin: 20px 0;
     width: 100%;
+    max-width: 400px;
     height: auto;
   }
 
