@@ -2,9 +2,11 @@
 import Layout from '@/layouts/mainLayout.astro'
 import Pagination from '@/components/vue/Pagination.vue'
 import NewsCard from '@/components/astro/card/NewsCard.astro'
+import List from '@/components/astro/List.astro'
 
 import { getAllNews } from '@/api/news'
 import type { NewsDocument } from '@/types/prismic'
+import { convertNewsForList } from '@/utils/convertList'
 
 export async function getStaticPaths({ paginate }: any) {
   const entries = await getAllNews()
@@ -20,11 +22,7 @@ const { page } = Astro.props
     <h3 class="title-description">What's going on?</h3>
   </div>
   <section class="content">
-    {
-      page.data.map((news: NewsDocument) => {
-        return <NewsCard news={news} />
-      })
-    }
+    <List list={convertNewsForList(page.data)} />
   </section>
   <div class="pagination-wrapper">
     <Pagination offset={page.currentPage} maxPage={page.lastPage} />
@@ -36,18 +34,10 @@ const { page } = Astro.props
   .content {
     margin: 64px 10%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 40px;
     justify-items: center;
-
-    @include tablet {
-      grid-template-columns: 1fr;
-    }
-
-    @include sp {
-      grid-template-columns: 1fr;
-    }
   }
 
   .title {

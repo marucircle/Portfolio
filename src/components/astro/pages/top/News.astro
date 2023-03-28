@@ -1,8 +1,9 @@
 ---
 import LinkButton from '@/components/astro/LinkButton.astro'
-import NewsCard from '@/components/astro/card/NewsCard.astro'
+import List from '@/components/astro/List.astro'
 import SectionLayout from '@/layouts/SectionLayout.astro'
 import type { NewsDocument } from '@/types/prismic'
+import { convertNewsForList } from '@/utils/convertList'
 
 type Props = {
   newsList: Array<NewsDocument>
@@ -13,11 +14,7 @@ const { newsList } = Astro.props
 
 <SectionLayout title="News" description="What's going on?">
   <div class="news-content">
-    {
-      newsList.map((news) => {
-        return <NewsCard news={news} />
-      })
-    }
+    <List list={convertNewsForList(newsList)} />
   </div>
   <footer class="news-footer">
     <LinkButton
@@ -33,19 +30,8 @@ const { newsList } = Astro.props
   .news {
     &-content {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 20px;
+      grid-template-columns: 1fr;
       justify-items: center;
-
-      @include tablet {
-        grid-template-columns: 1fr;
-        grid-row-gap: 40px;
-      }
-
-      @include sp {
-        grid-template-columns: 1fr;
-        grid-row-gap: 40px;
-      }
     }
 
     &-footer {

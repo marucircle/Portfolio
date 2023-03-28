@@ -317,16 +317,16 @@ interface NewsDocumentData {
      */
     description: prismicT.KeyTextField;
     /**
-     * content field in *News*
+     * link field in *News*
      *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: 詳細
-     * - **API ID Path**: news.content
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news.link
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    content: prismicT.RichTextField;
+    link: prismicT.KeyTextField;
 }
 /**
  * News document from Prismic

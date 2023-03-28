@@ -20,6 +20,11 @@ const { text, link, ariaLabel } = Astro.props
     border-radius: 3px;
     color: map-get($map: $button-colors, $key: 'primary');
     width: 100%;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: map-get($map: $bg-colors, $key: 'light-blue');
+    }
 
     & > a {
       display: block;

@@ -1,0 +1,89 @@
+---
+import type { List } from '@/utils/convertList'
+import LinkImage from '@public/link.png'
+type Props = {
+  list: Array<{
+    title: string | null
+    date: string
+    link: string | null
+    description: string | null
+  }>
+}
+
+const { list } = Astro.props
+---
+
+<ul class="list">
+  {
+    list.map((el: List) => {
+      return (
+        <li class="list-element">
+          {el.link ? (
+            <a href={el.link} class="list-link">
+              <div class="list-text">
+                <p class="list-title">{el.title}</p>
+                <p class="list-date">{el.date}</p>
+              </div>
+              <img src={LinkImage} alt="リンク" class="list-link-image" />
+            </a>
+          ) : (
+            <div class="list-text">
+              <p class="list-title">{el.title}</p>
+              <p class="list-date">{el.date}</p>
+            </div>
+          )}
+        </li>
+      )
+    })
+  }
+</ul>
+
+<style lang="scss">
+  @import '@/styles/_variables.scss';
+  .list {
+    width: 100%;
+    max-width: 800px;
+    border: 3px solid map-get($map: $border-colors, $key: 'primary');
+    &-element {
+      padding: 10px 10px;
+
+      &:not(&:last-child) {
+        border-bottom: 1px solid map-get($map: $border-colors, $key: 'primary');
+      }
+    }
+
+    &-title {
+      font-size: map-get($map: $font-sizes, $key: 'heading5');
+      font-weight: bold;
+      color: map-get($map: $text-colors, $key: 'primary');
+    }
+
+    &-date {
+      font-size: map-get($map: $font-sizes, $key: 'caption');
+      font-weight: 300;
+      color: map-get($map: $text-colors, $key: 'secondary');
+    }
+
+    &-description {
+      font-size: map-get($map: $font-sizes, $key: 'text');
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+    }
+
+    &-link {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      column-gap: 10px;
+      align-items: center;
+
+      &-image {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+</style>
