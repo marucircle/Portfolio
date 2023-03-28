@@ -22,6 +22,7 @@ const { list } = Astro.props
             <a href={el.link} class="list-link">
               <div class="list-text">
                 <p class="list-title">{el.title}</p>
+                <p class="list-description">{el.description}</p>
                 <p class="list-date">{el.date}</p>
               </div>
               <img src={LinkImage} alt="リンク" class="list-link-image" />
@@ -29,6 +30,7 @@ const { list } = Astro.props
           ) : (
             <div class="list-text">
               <p class="list-title">{el.title}</p>
+              <p class="list-description">{el.description}</p>
               <p class="list-date">{el.date}</p>
             </div>
           )}
@@ -66,6 +68,7 @@ const { list } = Astro.props
 
     &-description {
       font-size: map-get($map: $font-sizes, $key: 'text');
+      color: map-get($map: $text-colors, $key: 'primary');
     }
 
     &-text {
