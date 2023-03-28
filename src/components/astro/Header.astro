@@ -16,7 +16,7 @@
 <style lang="scss">
   @import '@/styles/_variables.scss';
   .header {
-    padding: 0 20px;
+    padding: 0;
     display: grid;
     position: sticky;
     inset: 0;
@@ -36,6 +36,12 @@
 
         display: block;
         text-align: center;
+        transition: all 0.25s;
+
+        &:hover {
+          color: map-get($map: $bg-colors, $key: 'dark-grey');
+          background-color: map-get($map: $text-colors, $key: 'white');
+        }
       }
       &-list {
         display: flex;
