@@ -8,6 +8,7 @@
 
   @include sp {
     padding: 0 10px;
+    row-gap: 15px;
   }
 
   & .twitter-tweet {
@@ -20,19 +21,35 @@
 
   & > h1 {
     font-size: map-get($map: $font-sizes, $key: 'heading1');
+
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'heading2');
+    }
   }
   & > h2 {
     font-size: map-get($map: $font-sizes, $key: 'heading2');
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'heading3');
+    }
   }
   & > h3 {
     font-size: map-get($map: $font-sizes, $key: 'heading3');
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'heading4');
+    }
   }
 
   & > h4 {
     font-size: map-get($map: $font-sizes, $key: 'heading4');
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'heading5');
+    }
   }
   & > h5 {
     font-size: map-get($map: $font-sizes, $key: 'heading5');
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'caption');
+    }
   }
   & > h6 {
     font-size: map-get($map: $font-sizes, $key: 'heading6');
@@ -40,6 +57,14 @@
 
   & > p {
     font-size: map-get($map: $font-sizes, $key: 'body');
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'small_body');
+    }
+
+    & > a {
+      color: map-get($map: $text-colors, $key: 'accent-blue');
+      text-decoration: underline;
+    }
   }
 
   & > ol {

@@ -55,15 +55,23 @@ const links = [
     margin: -40px 60px 80px;
 
     @include sp {
-      margin: -40px 0 80px;
+      margin: -40px 0 40px;
     }
   }
 
   .breadcrumbs-wrapper {
     margin-bottom: 40px;
+
+    @include sp {
+      margin-bottom: 20px;
+    }
   }
   .title {
     font-size: map-get($map: $font-sizes, $key: 'heading1');
+
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'heading2');
+    }
   }
 
   .date {
@@ -71,5 +79,9 @@ const links = [
     font-weight: 300;
     font-size: map-get($map: $font-sizes, $key: 'heading5');
     color: map-get($map: $text-colors, $key: 'secondary');
+
+    @include sp {
+      font-size: map-get($map: $font-sizes, $key: 'small_body');
+    }
   }
 </style>
