@@ -4,6 +4,7 @@
 import dateFormat from '@/utils/dateFormat'
 import type { CareerDocument } from '@/types/prismic'
 import SectionLayout from '@/layouts/SectionLayout.astro'
+import { sortCareer } from '@/utils/sortCareer'
 
 type Props = {
   careers: Array<CareerDocument>
@@ -15,7 +16,7 @@ const { careers } = Astro.props
 <SectionLayout title="Career" description="My loadmap" style={{ margin: '64px 0;' }}>
   <div class="career-content">
     {
-      careers.map((career, i) => {
+      sortCareer(careers).map((career, i) => {
         return (
           <div class="career-unit">
             <span class="career-unit-border-wrapper">
@@ -73,11 +74,11 @@ const { careers } = Astro.props
       &-text {
         color: map-get($map: $text-colors, $key: 'grey');
         font-weight: bold;
-        font-size: map-get($map: $font-sizes, $key: 'heading4');
+        font-size: map-get($map: $font-sizes, $key: 'heading5');
         justify-self: right;
 
         @include sp {
-          font-size: map-get($map: $font-sizes, $key: 'heading5');
+          font-size: map-get($map: $font-sizes, $key: 'text');
         }
       }
 
