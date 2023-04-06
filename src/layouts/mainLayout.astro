@@ -4,9 +4,16 @@ import Footer from '@/components/astro/Footer.astro'
 import Face from '@public/face.jpeg'
 export interface Props {
   title: string
+  path: string
+  ogType: 'website' | 'article'
 }
 
-const { title } = Astro.props
+// Example: Construct a canonical URL using your production domain
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'http://localhost:3000')
+// Example: Construct a URL for SEO meta tags using your current domain
+const socialImageUrl = new URL('/face.jpeg', canonicalUrl)
+
+const { title, path, ogType } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -20,7 +27,12 @@ const { title } = Astro.props
     />
     <!-- TODO OGPの設定をする -->
     <meta property="og:site_name" content="まる家" />
-    <meta property="og:image" content={Face} />
+    <meta content="まる家" property="og:title" />
+    <meta content="summary" name="twitter:card" />
+    <meta content={path} property="og:url" />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta name="twitter:site" content="@kabitaya1133" />
+    <meta property="og:type" content={ogType} />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
