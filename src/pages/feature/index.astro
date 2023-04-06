@@ -9,7 +9,7 @@ import Skills from '@/components/astro/pages/feature/Skills.astro'
 const careerList = await getCareerList()
 ---
 
-<Layout title="Feature">
+<Layout title="Feature" path={`/feature`} ogType="article">
   <main class="content">
     <Profile hasDetailLink={false} />
     <Career careers={careerList} />
