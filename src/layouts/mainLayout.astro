@@ -15,8 +15,6 @@ const canonicalUrl = new URL(Astro.url.pathname, domain)
 const socialImageUrl = new URL('/face.jpeg', canonicalUrl)
 
 const { title, path, ogType } = Astro.props
-
-const ogUrl = canonicalUrl + path
 ---
 
 <!DOCTYPE html>
@@ -31,7 +29,7 @@ const ogUrl = canonicalUrl + path
     <meta property="og:site_name" content="まる家" />
     <meta content="まる家" property="og:title" />
     <meta content="summary" name="twitter:card" />
-    <meta content={ogUrl} property="og:url" />
+    <meta content={canonicalUrl} property="og:url" />
     <meta property="og:image" content={socialImageUrl} />
     <meta name="twitter:site" content="@kabitaya1133" />
     <meta property="og:type" content={ogType} />
