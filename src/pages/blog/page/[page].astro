@@ -39,6 +39,14 @@ const { page } = Astro.props
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    justify-items: center;
+    @include sp {
+      grid-template-columns: 1fr;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
   }
 
   .title {
