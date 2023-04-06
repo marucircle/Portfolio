@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }: any) {
 const { page } = Astro.props
 ---
 
-<Layout title="Blog" path={`/blog/page/${page}`} ogType="article">
+<Layout title="Blog" ogType="article">
   <div class="title">
     <h1 class="title-heading">Blog</h1>
     <h3 class="title-description">What are you doing?</h3>
