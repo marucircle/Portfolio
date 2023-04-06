@@ -49,9 +49,11 @@ const { news } = Astro.props
     &-header {
       text-align: center;
       background-color: map-get($map: $bg-colors, $key: 'grey');
+      overflow-x: hidden;
       &-image {
         height: 100%;
         width: auto;
+        max-width: 100%;
         object-fit: cover;
       }
     }
