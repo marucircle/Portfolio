@@ -5,10 +5,11 @@ import BlogCard from '@/components/astro/card/BlogCard.astro'
 
 import { getAllBlog } from '@/api/blog'
 import type { BlogDocument } from '@/types/prismic'
+import { PaginateBlogSize } from '@/constants/Paginate'
 
 export async function getStaticPaths({ paginate }: any) {
   const entries = await getAllBlog()
-  return paginate(entries, { pageSize: 9 })
+  return paginate(entries, { pageSize: PaginateBlogSize })
 }
 
 const { page } = Astro.props
