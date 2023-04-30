@@ -1,16 +1,15 @@
 ---
 import Layout from '@/layouts/mainLayout.astro'
 import Pagination from '@/components/vue/Pagination.vue'
-import NewsCard from '@/components/astro/card/NewsCard.astro'
 import List from '@/components/astro/List.astro'
 
 import { getAllNews } from '@/api/news'
-import type { NewsDocument } from '@/types/prismic'
 import { convertNewsForList } from '@/utils/convertList'
+import { PaginateNewsSize } from '@/constants/Paginate'
 
 export async function getStaticPaths({ paginate }: any) {
   const entries = await getAllNews()
-  return paginate(entries, { pageSize: 9 })
+  return paginate(entries, { pageSize: PaginateNewsSize })
 }
 
 const { page } = Astro.props

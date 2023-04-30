@@ -12,7 +12,7 @@ const { blog } = Astro.props
 
 <a href={'/blog/' + blog.id} aria-label="記事の詳細を見る" class="card-wrapper">
   <article class="card">
-    <header class="card-header">
+    <header class="card-header" style={`--bg-image: url(${blog.data.thumbnail.url});`}>
       <img
         class="card-header-image"
         src={blog.data.thumbnail.url ?? NoImage}
@@ -56,9 +56,14 @@ const { blog } = Astro.props
 
     &-header {
       text-align: center;
-      background-color: map-get($map: $bg-colors, $key: 'grey');
       overflow: hidden;
+      background: var(--bg-image);
+      background-color: rgba(238, 238, 238, 0.8);
+      background-blend-mode: lighten;
+      background-size: cover;
+      background-position: center;
       &-image {
+        opacity: 1;
         height: 100%;
         width: auto;
         max-width: 100%;
