@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { PrismicRichText } from '@prismicio/vue'
+import { PrismicRichText, PrismicImage } from '@prismicio/vue'
 
 export default {
   name: 'RichEditor',
@@ -19,9 +19,9 @@ export default {
   methods: {
     //embedで整形の必要ありな部分が出てきたらいじる
     htmlSerializer: function (type, element, text, children) {
-      // if (type === 'embed') {
-      // }
-      // return null
+      if (type === 'image') {
+        return `<div class="image"><img src="${element.url}" alt="${element.alt}" /><p class="image-description">${element.alt}</p></div>`
+      }
     },
   },
 }
