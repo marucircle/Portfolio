@@ -19,7 +19,7 @@ export default {
   methods: {
     //embedで整形の必要ありな部分が出てきたらいじる
     htmlSerializer: function (type, element, text, children) {
-      if (type === 'image') {
+      if (type === 'image' && element.alt !== null) {
         return `<div class="image"><img src="${element.url}" alt="${element.alt}" /><p class="image-description">${element.alt}</p></div>`
       }
     },
