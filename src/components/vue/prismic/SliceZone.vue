@@ -1,15 +1,17 @@
 <template>
-  <SliceZone :slices="slices" :components="{ rich_editor: RichEditor }" />
+  <SliceZone :slices="slices" :components="{ rich_editor: RichEditor, code: Code }" />
 </template>
 
 <script>
 import { SliceZone } from '@prismicio/vue'
 import RichEditor from '@/components/vue/prismic/RichEditor.vue'
+import Code from '@/components/vue/prismic/Code.vue'
 
 export default {
   data() {
     return {
       RichEditor,
+      Code,
     }
   },
   components: {
