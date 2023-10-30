@@ -19,6 +19,10 @@
     margin: 0 auto;
   }
 
+  & a {
+    color: #0066ff;
+  }
+
   & > h1 {
     font-size: map-get($map: $font-sizes, $key: 'heading1');
 
