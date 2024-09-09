@@ -50,7 +50,7 @@ export default {
   row-gap: 25px;
 
   @include sp {
-    margin: 0 10px;
+    padding: 10px;
     row-gap: 15px;
   }
 }
