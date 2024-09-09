@@ -40,7 +40,6 @@ export default {
 @import '@/styles/_variables.scss';
 .rich-editor-code {
   max-height: 500px;
-  width: 100%;
   overflow: scroll;
   background-color: #000000;
   color: #ffffff;
