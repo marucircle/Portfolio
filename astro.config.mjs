@@ -10,6 +10,9 @@ const __dirname = dirname(__filename)
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue(), react()],
+  devToolbar: {
+    enabled: false, //TODO dev時のみ表示させるようにする
+  },
   vite: {
     resolve: {
       alias: {
