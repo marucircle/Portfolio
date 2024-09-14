@@ -13,10 +13,10 @@ export const SelectBox = ({
   onChange: React.ChangeEventHandler<HTMLSelectElement>
 }) => {
   return (
-    <select onChange={onChange} value={value} className={Styles['select-box']}>
+    <select onChange={onChange} defaultValue={defaultValue} className={Styles['select-box']}>
       {options.map((option) => {
         return (
-          <option value={option} selected={option === value} key={option}>
+          <option value={option} key={option}>
             {option}
           </option>
         )

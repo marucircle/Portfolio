@@ -15,7 +15,7 @@ const { blog } = Astro.props
     <header class="card-header" style={`--bg-image: url(${blog.data.thumbnail.url});`}>
       <img
         class="card-header-image"
-        src={blog.data.thumbnail.url ?? NoImage}
+        src={blog.data.thumbnail.url ?? NoImage.src}
         alt="記事のサムネイル画像"
       />
     </header>

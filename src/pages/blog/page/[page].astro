@@ -7,6 +7,13 @@ import { getAllBlog } from '@/api/blog'
 import type { BlogDocument } from '@/types/prismic'
 import { PaginateBlogSize } from '@/constants/Paginate'
 
+interface Props {
+  page: {
+    data: BlogDocument[]
+    currentPage: number
+    lastPage: number
+  }
+}
 export async function getStaticPaths({ paginate }: any) {
   const entries = await getAllBlog()
   return paginate(entries, { pageSize: PaginateBlogSize })
@@ -28,7 +35,7 @@ const { page } = Astro.props
     }
   </section>
   <div class="pagination-wrapper">
-    <Pagination offset={page.currentPage} maxPage={page.lastPage} />
+    <Pagination offset={page.currentPage} maxPage={page.lastPage} baseUrl="/blog/page/" />
   </div>
 </Layout>
 
