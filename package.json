@@ -13,14 +13,14 @@
   },
   "dependencies": {
     "@astrojs/renderer-vue": "^0.4.0",
-    "@astrojs/vue": "^2.0.1",
+    "@astrojs/vue": "^4.5.0",
     "@nivo/bar": "^0.80.0",
     "@nivo/core": "^0.80.0",
     "@nivo/radar": "^0.80.0",
     "@prismicio/client": "^6.7.3",
     "@prismicio/vue": "^3.1.2",
     "@vue/composition-api": "^1.7.1",
-    "astro": "^2.0.17",
+    "astro": "^4.15.6",
     "cdate": "^0.0.4",
     "node-fetch": "^3.3.0",
     "prismjs": "^1.29.0",
@@ -28,7 +28,7 @@
     "vue": "^3.2.30"
   },
   "devDependencies": {
-    "@astrojs/react": "^2.0.2",
+    "@astrojs/react": "^3.6.2",
     "@prismicio/types": "^0.2.7",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
@@ -39,6 +39,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.57.1",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "typescript": "^5.6.2"
   }
 }
