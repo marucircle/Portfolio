@@ -2,8 +2,8 @@ import { getSkillList } from '@/api/skill'
 import {
   SkillTypeFieldList,
   SkillTypeKey,
-  SkillTypeKeyType,
   SkillTypeList,
+  type SkillTypeKeyType,
 } from '@/constants/SkillTag'
 import type { SkillDocument } from '@/types/prismic'
 import { isSkillTypeKey } from '@/utils/isSkillTypeKey'

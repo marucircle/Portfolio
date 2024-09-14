@@ -3,7 +3,7 @@
     <a
       v-if="offset !== 1"
       class="pagination-link pagination-link-prev"
-      :href="'/news/page/' + (offset - 1)"
+      :href="baseUrl + (offset - 1)"
       aria-label="一つ前の一覧を見る"
       >Prev</a
     >
@@ -11,7 +11,7 @@
       <a
         v-if="offset !== 1"
         class="pagination-link"
-        :href="'/news/page/' + 1"
+        :href="baseUrl + 1"
         aria-label="最初の一覧を見る"
         >1</a
       >
@@ -19,7 +19,7 @@
       <a
         v-if="offset - 1 > 1"
         class="pagination-link"
-        :href="'/news/page/' + (offset - 1)"
+        :href="baseUrl + (offset - 1)"
         aria-label="一つ前の一覧を見る"
         >{{ offset - 1 }}</a
       >
@@ -27,7 +27,7 @@
       <a
         v-if="offset + 1 < maxPage"
         class="pagination-link"
-        :href="'/news/page/' + (offset + 1)"
+        :href="baseUrl + (offset + 1)"
         aria-label="一つ次の一覧を見る"
         >{{ offset + 1 }}</a
       >
@@ -35,7 +35,7 @@
       <a
         v-if="offset !== maxPage"
         class="pagination-link"
-        :href="'/news/page/' + maxPage"
+        :href="baseUrl + maxPage"
         aria-label="最後の一覧を見る"
         >{{ maxPage }}</a
       >
@@ -43,7 +43,7 @@
     <a
       v-if="offset !== maxPage"
       class="pagination-link pagination-link-next"
-      :href="'/news/page/' + (offset + 1)"
+      :href="baseUrl + (offset + 1)"
       aria-label="一つ次の一覧を見る"
       >Next</a
     >
@@ -61,6 +61,10 @@ export default defineComponent({
     },
     maxPage: {
       type: Number,
+      required: true,
+    },
+    baseUrl: {
+      type: String,
       required: true,
     },
   },

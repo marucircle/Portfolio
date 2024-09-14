@@ -25,7 +25,7 @@ const { list } = Astro.props
                 <p class="list-description">{el.description}</p>
                 <p class="list-date">{el.date}</p>
               </div>
-              <img src={LinkImage} alt="リンク" class="list-link-image" />
+              <img src={LinkImage.src} alt="リンク" class="list-link-image" />
             </a>
           ) : (
             <div class="list-text">
