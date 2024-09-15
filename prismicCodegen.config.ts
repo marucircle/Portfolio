@@ -1,7 +1,5 @@
 import type { Config } from 'prismic-ts-codegen'
-import dotenv from 'dotenv'
-
-dotenv.config({ path: '.env' })
+import 'dotenv/config'
 
 const config: Config = {
   output: './src/types/prismic.ts',
