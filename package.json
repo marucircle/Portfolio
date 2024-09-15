@@ -2,6 +2,7 @@
   "name": "@example/basics",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@9.6.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -32,6 +33,7 @@
     "@prismicio/types": "^0.2.7",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
+    "client": "link:@types/@pricmisio/client",
     "dotenv": "^16.0.3",
     "prettier": "^2.8.1",
     "prettier-plugin-astro": "^0.7.0",
